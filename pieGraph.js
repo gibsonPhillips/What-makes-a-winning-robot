@@ -7,7 +7,7 @@ var width = 450
 var radius = Math.min(width, height) / 2 - margin
 
 // append the svg object to the div called 'my_dataviz'
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("body")
   .append("svg")
     .attr("width", width)
     .attr("height", height)
