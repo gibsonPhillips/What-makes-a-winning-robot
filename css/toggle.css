@@ -1,15 +1,10 @@
-p {
-    padding: 100px;
-    margin: 100px;
-}
-
 /*globular*/
 .switch {
     position: relative;
     display: inline-block;
     width: 40px;
     height: 20px;
-    background-color: #eee;
+    background-color: #979797;
     border-radius: 20px;
 }
 
@@ -31,7 +26,7 @@ p {
 }
 
 .checkbox:checked+.switch {
-    background-color: #41df88;
+    background-color: #00ff73;
 }
 
 .checkbox {
