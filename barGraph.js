@@ -15,4 +15,4 @@ svg.append('circle')
     .attr('cy', 100)
     .attr('r', 50)
     .attr('stroke', 'black')
-    .attr('fill', '#69a3b2');
+    .attr('fill', 'black');
