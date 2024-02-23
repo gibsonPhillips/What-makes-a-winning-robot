@@ -10,3 +10,9 @@ var svg = d3.select("body")
     .append("svg")
     .attr("width", width)
     .attr("height", height);
+svg.append('circle')
+    .attr('cx', 100)
+    .attr('cy', 100)
+    .attr('r', 50)
+    .attr('stroke', 'black')
+    .attr('fill', '#69a3b2');
