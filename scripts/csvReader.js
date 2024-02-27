@@ -50,13 +50,20 @@ export async function sortData(weapon, drive, category) {
 
         const processedData = splitData(driveData,"Weapon");
         var tempData;
+        var finalData = {}
+        // Gets the information needed for the drive
         for (const key in processedData) {
             if (processedData.hasOwnProperty(key)) {
               tempData = splitData(processedData[key],"Drive");
-
-              return getDriveInfo(tempData);
+              finalData[key] = getDriveInfo(tempData);
+              
             }
         }
+        // Gets the information for each individual weapon
+        for (const key in finalData){
+            finalData[key] = getWeaponInfo(finalData[key]);
+        }
+        return finalData;
           
     } catch (error) {
         console.error('Error sorting data:', error);
@@ -85,19 +92,36 @@ function getDriveInfo(data){
         var W = 0;
         var L = 0;
         var perc = 0;
-        var N = 0;
         for (const dp of data[key] ){
             KOs = KOs +  parseInt(dp["KOs"]);
             KOd = KOd + parseInt(dp['KOd']);
             W = W + parseInt(dp['W']);
             L = L + parseInt(dp['L']);
-            N = N+1;
         }
         perc = W/(W+L);
-        tempData = {"KOs":KOs,"KOd":KOd,"W":W,"L":L,"perc":perc}
+        tempData = {"KOs":KOs,"KOd":KOd,"W":W,"L":L,"perc":perc};
         info[key]=tempData;
     }
     return info;
+}
+
+function getWeaponInfo(data){
+    var info = {}
+    var tempData;
+    var KOs = 0;
+    var KOd = 0;
+    var W = 0;
+    var L = 0;
+    var perc = 0;
+    for (const key in data){
+        W = W + parseInt(data[key]["W"]);
+        L= L + parseInt(data[key]["L"]);
+        KOs = KOs + parseInt(data[key]["KOs"]);
+        KOd = KOd + parseInt(data[key]["KOd"]);
+    }
+    perc = W/(W+L);
+    data['Summary'] = {"KOs":KOs,"KOd":KOd,"W":W,"L":L,"perc":perc};
+    return data;
 }
 
 
