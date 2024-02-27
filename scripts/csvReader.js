@@ -94,8 +94,10 @@ function getDriveInfo(data){
             N = N+1;
         }
         perc = W/(W+L);
-        return perc;
+        tempData = {"KOs":KOs,"KOd":KOd,"W":W,"L":L,"perc":perc}
+        info[key]=tempData;
     }
+    return info;
 }
 
 
