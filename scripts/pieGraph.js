@@ -1,6 +1,3 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-
-
 // // set the dimensions and margins of the graph
 // var width = 450
 //     height = 450
