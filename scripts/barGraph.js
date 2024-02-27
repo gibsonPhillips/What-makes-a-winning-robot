@@ -1,7 +1,7 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-
+import {sortData} from "./csvReader.js";
 console.log(d3);
-
+console.log(await sortData(["Vertical Spinner","Drum"],["2WD","4WD"],["30lb","3lb"]));
 // create 2 data_set
 var data1 = [
     {group: "A", value: 4},
