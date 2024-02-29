@@ -131,6 +131,12 @@ var u;
 var v;
 // A function that create / update the plot for a given variable:
 export function update(weapon1, weapon2) {
+
+  svg1.selectAll("rect").remove();
+  svg2.selectAll("rect").remove();
+  svg1.select(".xAxis").remove();
+  svg2.select(".xAxis").remove();
+
   // X axis
   x = d3.scaleBand()
     .range([0, width])
@@ -163,9 +169,6 @@ export function update(weapon1, weapon2) {
   u
     .enter()
     .append("rect")
-    .merge(u)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x(d[0]); })
     .attr("y", function (d) { return y(d[1].W); })
     .attr("width", x.bandwidth())
@@ -176,9 +179,6 @@ export function update(weapon1, weapon2) {
   u
     .enter()
     .append("rect")
-    .merge(u)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x(d[0]); })
     .attr("y", function (d) { return y(0); })
     .attr("width", x.bandwidth())
@@ -193,9 +193,6 @@ export function update(weapon1, weapon2) {
   v
     .enter()
     .append("rect")
-    .merge(v)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x2(d[0]); })
     .attr("y", function (d) { return y2(d[1].W); })
     .attr("width", x2.bandwidth())
@@ -206,9 +203,6 @@ export function update(weapon1, weapon2) {
   v
     .enter()
     .append("rect")
-    .merge(v)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x2(d[0]); })
     .attr("y", function (d) { return y2(0); })
     .attr("width", x2.bandwidth())
@@ -217,4 +211,4 @@ export function update(weapon1, weapon2) {
 }
 window.update = update;
 // Initialize the plot with the first dataset
-update("Hammersaw", "Drum");
+update("Hammersaw", "Hammersaw");

@@ -7,7 +7,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
         <script src="https://d3js.org/d3.v6.min.js"></script>
+        <script>
 
+            document.addEventListener("DOMContentLoaded", function () {
+                var weaponType1Select = document.getElementById("WeaponType1");
+                var weaponType2Select = document.getElementById("WeaponType2");
+
+                weaponType1Select.addEventListener("change", function () {
+                    update(weaponType1Select.value, weaponType2Select.value);
+                });
+
+                weaponType2Select.addEventListener("change", function () {
+                    update(weaponType1Select.value, weaponType2Select.value);
+                });
+            });
+        </script>
         <title> Graphs and charts </title>
     </head>
 
@@ -22,8 +36,60 @@
 
 <body>
     <div class="hbox">
-        <div id="barGraph1"></div>
-        <div id="barGraph2"></div>
+        <div id="barGraph1">
+            <label for="WeaponType1">Choose a Weapon Type:</label>
+            <select name="WeaponType1" id="WeaponType1">
+                <option value="Hammersaw">Hammersaw</option>
+                <option value="Vertical Spinner">Vertical Spinner</option>
+                <option value="Drum">Drum</option>
+                <option value="Undercutter">Undercutter</option>
+                <option value="Midcutter">Midcutter</option>
+                <option value="Grappler">Grappler</option>
+                <option value="Flamethrower">Flamethrower</option>
+                <option value="Drum Spinner">Drum Spinner</option>
+                <option value="Beater">Beater</option>
+                <option value="Hammer">Hammer</option>
+                <option value="Full Body Spinner">Full Body Spinner</option>
+                <option value="Flipper">Flipper</option>
+                <option value="Shell Spinner">Shell Spinner</option>
+                <option value="Lifter">Lifter</option>
+                <option value="Overhead">Overhead</option>
+                <option value="MeltyBrain">MeltyBrain</option>
+                <option value="Horizontal Spinmer">Horizontal Spinmer</option>
+                <option value="Crusher">Crusher</option>
+                <option value="Thwack">Thwack</option>
+                <option value="Ring Spinner">Ring Spinner</option>
+                <option value="Hammer Saw">Hammer Saw</option>
+                <option value="Flail">Flail</option>
+            </select>
+        </div>
+        <div id="barGraph2">
+            <label for="WeaponType2">Choose a Weapon Type:</label>
+            <select name="WeaponType2" id="WeaponType2">
+                <option value="Hammersaw">Hammersaw</option>
+                <option value="Vertical Spinner">Vertical Spinner</option>
+                <option value="Drum">Drum</option>
+                <option value="Undercutter">Undercutter</option>
+                <option value="Midcutter">Midcutter</option>
+                <option value="Grappler">Grappler</option>
+                <option value="Flamethrower">Flamethrower</option>
+                <option value="Drum Spinner">Drum Spinner</option>
+                <option value="Beater">Beater</option>
+                <option value="Hammer">Hammer</option>
+                <option value="Full Body Spinner">Full Body Spinner</option>
+                <option value="Flipper">Flipper</option>
+                <option value="Shell Spinner">Shell Spinner</option>
+                <option value="Lifter">Lifter</option>
+                <option value="Overhead">Overhead</option>
+                <option value="MeltyBrain">MeltyBrain</option>
+                <option value="Horizontal Spinmer">Horizontal Spinmer</option>
+                <option value="Crusher">Crusher</option>
+                <option value="Thwack">Thwack</option>
+                <option value="Ring Spinner">Ring Spinner</option>
+                <option value="Hammer Saw">Hammer Saw</option>
+                <option value="Flail">Flail</option>
+            </select>
+        </div>
     </div>
     <script type="module" src="scripts\barGraph.js"></script>
     <button type="button" onclick="update()">button</button>
