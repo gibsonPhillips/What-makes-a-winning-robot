@@ -1,43 +1,51 @@
-// set the dimensions and margins of the graph
-var width = 450
-    height = 450
-    margin = 40
+// Sample data for the pie chart
+const data = [
+    { label: 'Wins', value: 30 },
+    { label: 'Losses', value: 20 },
+];
 
-// The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
-var radius = Math.min(width, height) / 2 - margin
+// Set up dimensions for the pie chart
+const width = 500;
+const height = 500;
+const radius = Math.min(width, height) / 2;
 
-// append the svg object to the div called 'KOs'
-var svg = d3.select("#KOs")
-  .append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + 1000+")");
+// Create SVG element
+const svg = d3.select('#pie-chart-container')
+    .append('svg')
+    .attr('width', width)
+    .attr('height', height)
+    .append('g')
+    .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
-// Create dummy data
-var data = {a: 9, b: 20, c:30, d:8, e:12}
+// Create a pie generator
+const pie = d3.pie()
+    .value(d => d.value);
 
-// set the color scale
-var color = d3.scaleOrdinal()
-  .domain(data)
-  .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"])
+// Generate pie chart data
+const pieData = pie(data);
 
-// Compute the position of each group on the pie:
-var pie = d3.pie()
-  .value(function(d) {return d.value; })
-var data_ready = pie(d3.entries(data))
-
-// Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-svg
-  .selectAll('whatever')
-  .data(data_ready)
-  .enter()
-  .append('path')
-  .attr('d', d3.arc()
+// Set up arc generator
+const arc = d3.arc()
     .innerRadius(0)
-    .outerRadius(radius)
-  )
-  .attr('fill', function(d){ return(color(d.data.key)) })
-  .attr("stroke", "black")
-  .style("stroke-width", "2px")
-  .style("opacity", 0.7)
+    .outerRadius(radius);
+
+// Create arcs for each pie slice
+const arcs = svg.selectAll('arc')
+    .data(pieData)
+    .enter()
+    .append('g')
+    .attr('class', 'arc');
+
+
+const colours = ["green", "red"]
+// Add paths for each arc
+arcs.append('path')
+    .attr('d', arc)
+    .attr('fill', (d, i) => colours[i]);
+
+// Add text labels for each slice
+arcs.append('text')
+    .attr('transform', d => `translate(${arc.centroid(d)})`)
+    .attr('text-anchor', 'middle')
+    .attr('fill', 'white')
+    .text(d => d.data.label);
