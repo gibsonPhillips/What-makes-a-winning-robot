@@ -5,8 +5,8 @@ const data = [
 ];
 
 // Set up dimensions for the pie chart
-const width = 500;
-const height = 500;
+const width = document.getElementById('pie-chart-container').offsetWidth;
+const height = document.getElementById('pie-chart-container').offsetHeight;
 const radius = Math.min(width, height) / 2;
 
 // Create SVG element

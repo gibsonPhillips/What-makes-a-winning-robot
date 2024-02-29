@@ -1,5 +1,7 @@
         #pie-chart-container {
-            width: 500px;
-            height: 500px;
+            width: 10em;
+            height: 10em;
             margin: 0 auto;
+            padding: 0px;
+            margin: 0px;
         }
