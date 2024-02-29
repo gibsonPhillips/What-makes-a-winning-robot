@@ -1,0 +1,55 @@
+#main {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+}
+
+#graph-picharts-and-gifs {
+    background-color: green;
+
+    flex-grow: 5;
+}
+
+#panels {
+    background-color: rgb(164, 255, 164);
+}
+
+#drive-toggles {
+    background-color: blue;
+
+    height: 100vh;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    /* inner-flex */
+    gap: 1em;
+    justify-content: space-around;
+    align-items: center;
+
+    /* mbpo */
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+
+}
+
+#weight-toggles {
+    background-color: rgb(152, 152, 253);
+
+    height: 100vh;
+
+    /* flex */
+    justify-content: space-around;
+    flex-grow: 1;
+
+    /* inner-flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* mbpo */
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+}
