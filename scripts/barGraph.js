@@ -1,11 +1,11 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import { processData, sortData } from "./csvReader.js";
 console.log(d3);
-var data1;
+var data;
 //console.log(data = await sortData(["Vertical Spinner","Drum"],["2WD","4WD"],["30lb","3lb"]));
 // create 2 data_set
 
-data1 = await sortData(["Hammersaw",
+data = await sortData(["Hammersaw",
   "Vertical Spinner",
   "Drum",
   "Undercutter",
@@ -27,28 +27,20 @@ data1 = await sortData(["Hammersaw",
   "Ring Spinner",
   "Hammer Saw",
   "Flail"], ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
-console.log(data1);
+console.log(data);
 
-// var data1 = await sortData(["Hammersaw"],["2WD", "Tread","4WD","Shuffler","8WD","Bristle Drive","Swerve","Drive"],["30lb","12lb","3lb"]);
+// var data = await sortData(["Hammersaw"],["2WD", "Tread","4WD","Shuffler","8WD","Bristle Drive","Swerve","Drive"],["30lb","12lb","3lb"]);
 // var data2 = await sortData(["Vertical Spinner"],["2WD", "Tread","4WD","Shuffler","8WD","Bristle Drive","Swerve","Drive"],["30lb","12lb","3lb"]);
-// console.log(data1);
+// console.log(data);
 // console.log(data2);
 
 //test data
-// export var data1 = [
+// export var data = [
 //   { group: "A", value: 4 },
 //   { group: "B", value: 16 },
 //   { group: "C", value: 8 },
 //   { group: "D", value: 20 }
 // ];
-
-//Test data
-export var data2 = [
-  { group: "A", value: 7 },
-  { group: "B", value: 1 },
-  { group: "C", value: 20 },
-  { group: "D", value: 3 }
-];
 
 // set the dimensions and margins of the graph
 var margin = { top: 30, right: 30, bottom: 70, left: 60 },
@@ -67,7 +59,7 @@ var svg1 = d3.select("#barGraph1")
 // X axis
 var x = d3.scaleBand()
   .range([0, width])
-  .domain(Object.keys(data1["Hammersaw"]))
+  .domain(Object.keys(data["Hammersaw"]))
   .padding(0.5);
 var xAxis = svg1.append("g")
   .attr("class", "xAxis")
@@ -97,7 +89,7 @@ var svg2 = d3.select("#barGraph2")
 // X axis
 var x2 = d3.scaleBand()
   .range([0, width])
-  .domain(Object.keys(data1["Hammersaw"]))
+  .domain(Object.keys(data["Hammersaw"]))
   .padding(0.5);
 var xAxis2 = svg2.append("g")
   .attr("class", "xAxis")
@@ -132,8 +124,8 @@ svg2.append('line')
 var u;
 var v;
 // A function that create / update the plot for a given variable:
-export function update(weapon1, weapon2) {
-
+export async function update(weapon1, weapon2, drive, category) {
+data = await sortData([weapon1,weapon2], drive, category);
   svg1.selectAll("rect").remove();
   svg2.selectAll("rect").remove();
   svg1.select(".xAxis").remove();
@@ -145,7 +137,7 @@ export function update(weapon1, weapon2) {
   // X axis
   x = d3.scaleBand()
     .range([0, width])
-    .domain(Object.keys(data1[weapon1]))
+    .domain(Object.keys(data[weapon1]))
     .padding(0.5);
   xAxis = svg1.append("g")
     .attr("class", "xAxis")
@@ -164,7 +156,7 @@ export function update(weapon1, weapon2) {
   // X axis
   x2 = d3.scaleBand()
     .range([0, width])
-    .domain(Object.keys(data1[weapon2]))
+    .domain(Object.keys(data[weapon2]))
     .padding(0.5);
   xAxis2 = svg2.append("g")
     .attr("class", "xAxis")
@@ -181,8 +173,8 @@ export function update(weapon1, weapon2) {
     .call(d3.axisLeft(y2));
 
   u = svg1.selectAll("rect")
-    .data(Object.entries(data1[weapon1]));
-  console.log(Object.entries(data1[weapon1]));
+    .data(Object.entries(data[weapon1]));
+  console.log(Object.entries(data[weapon1]));
 
   //The Wins
   u
@@ -204,9 +196,9 @@ export function update(weapon1, weapon2) {
     .attr("height", function (d) { return height - y(d[1].L - yHeight); })
     .attr("fill", "#da845f");
 
-  console.log(Object.entries(data1[weapon2]));
+  console.log(Object.entries(data[weapon2]));
   v = svg2.selectAll("rect")
-    .data(Object.entries(data1[weapon2]));
+    .data(Object.entries(data[weapon2]));
 
   //The wins
   v
@@ -231,8 +223,8 @@ export function update(weapon1, weapon2) {
 window.update = update;
 
 function findMax(weapon1, weapon2) {
-  var weaponData1 = Object.entries(data1[weapon1]);
-  var weaponData2 = Object.entries(data1[weapon2]);
+  var weaponData1 = Object.entries(data[weapon1]);
+  var weaponData2 = Object.entries(data[weapon2]);
   var max = weaponData1[weaponData1.length - 1][1].W;
 
   if (max < weaponData2[weaponData2.length - 1][1].W) {
@@ -248,4 +240,4 @@ function findMax(weapon1, weapon2) {
 }
 
 // Initialize the plot with the first dataset
-update("Hammersaw", "Hammersaw");
+update("Hammersaw", "Hammersaw",["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"],["30lb", "12lb", "3lb"]);
