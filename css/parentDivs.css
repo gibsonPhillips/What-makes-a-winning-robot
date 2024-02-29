@@ -1,7 +1,13 @@
 #main {
     background-color: black;
+
+    /* inner-flex */
     display: flex;
     flex-direction: row;
+
+    /* mbpo */
+    margin:0px;
+    padding:0px;
 }
 
 #graph-picharts-and-gifs {
@@ -12,44 +18,4 @@
 
 #panels {
     background-color: rgb(164, 255, 164);
-}
-
-#drive-toggles {
-    background-color: blue;
-
-    height: 100vh;
-
-    /* flex */
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-
-    /* inner-flex */
-    gap: 1em;
-    justify-content: space-around;
-    align-items: center;
-
-    /* mbpo */
-    padding-top: 25vh;
-    padding-bottom: 25vh;
-
-}
-
-#weight-toggles {
-    background-color: rgb(152, 152, 253);
-
-    height: 100vh;
-
-    /* flex */
-    justify-content: space-around;
-    flex-grow: 1;
-
-    /* inner-flex */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    /* mbpo */
-    padding-top: 25vh;
-    padding-bottom: 25vh;
 }

@@ -1,3 +1,5 @@
+/* styling the looks */
+
 /*globular*/
 .switch {
     position: relative;
@@ -31,4 +33,69 @@
 
 .checkbox {
     display: none;
+}
+
+
+/* spacing and formatting */
+
+#weight-title {
+    /* placement */
+    position: absolute;
+    top: 0px;
+
+    /* mbpo */
+    border-bottom: 2px solid black;
+    padding: 0px;
+
+}
+
+#drive-title {
+    /* placement */
+    position: absolute;
+    top: 0px;
+
+/* mbpo */
+    border-bottom: 2px solid black;
+    padding: 0px;
+}
+
+#drive-toggles {
+    background-color: blue;
+
+    height: 100vh;
+
+    /* flex */
+    flex-direction: column;
+    flex-grow: 1;
+
+    /* inner-flex */
+    display: flex;
+    gap: 1em;
+    justify-content: space-around;
+    align-items: center;
+
+    /* mbpo */
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+
+}
+
+#weight-toggles {
+    background-color: rgb(152, 152, 253);
+
+    height: 100vh;
+
+    /* flex */
+    justify-content: space-around;
+    flex-grow: 1;
+
+    /* inner-flex */
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    align-items: center;
+
+    /* mbpo */
+    padding-top: 25vh;
+    padding-bottom: 25vh;
 }
