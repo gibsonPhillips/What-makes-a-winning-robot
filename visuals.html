@@ -5,7 +5,11 @@
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/toggle.css" />
         <link rel="stylesheet" type="text/css" href="css/visuals.css" />
+        <link rel="stylesheet" type="text/css" href="css/pieChart.css" />
 
+
+        <!-- Include D3.js library -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
 
         <title> Why are you blue </title>
     </head>
@@ -24,9 +28,10 @@
 
                 <div class="hbox" id="gif">gif</div>
 
-                <div class="hbox" id="pi-charts" >
+                <div class="hbox" id="pi-charts">
                     <div class="vbox" id="chart-and-label-1">
-                        <div id="chart-1">pi-chart 1</div>
+                        <!-- Container for the pie chart -->
+                        <div id="pie-chart-container"></div>
                         <h3 id="label-1">label 1</h3>
                     </div>
                     <div class="vbox" id="chart-and-label-2">
@@ -34,7 +39,7 @@
                         <h3 id="label-2">label 2</h3>
                     </div>
                 </div>
-                
+
 
 
             </div>
@@ -108,6 +113,6 @@
 
 
 </div>
+<script src="scripts/pieGraph.js"></script>
 <script type="module">
-
 </script>

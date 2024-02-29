@@ -11,7 +11,7 @@
 }
 
 #graph-gifs-and-pi-charts {
-    background-color: green;
+    background-color: darkgreen;
 
     /* inner-flex */
     /* align-items: center; */
@@ -47,13 +47,13 @@
 #pi-charts {
 
     /* inner-flex */
-    align-items:center;
+    align-items: center;
     justify-content: space-around;
-    
+
     /* mbpo */
-    padding-left:10em;
-    padding-right:10em;
-    
+    padding-left: 10em;
+    padding-right: 10em;
+
     /* flex */
-    flex-grow:1;
+    flex-grow: 1;
 }
