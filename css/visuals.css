@@ -6,16 +6,54 @@
     flex-direction: row;
 
     /* mbpo */
-    margin:0px;
-    padding:0px;
+    margin: 0px;
+    padding: 0px;
 }
 
-#graph-picharts-and-gifs {
+#graph-gifs-and-pi-charts {
     background-color: green;
 
+    /* inner-flex */
+    /* align-items: center; */
+
+    /* flex */
     flex-grow: 5;
 }
 
 #panels {
     background-color: rgb(164, 255, 164);
+}
+
+
+#graphs {
+    background-color: aqua;
+
+    /* inner-flex */
+    justify-content: space-around;
+    /* align-content: center; */
+
+    /* flex */
+    flex-grow: 2
+}
+
+#gif {
+    background-color: purple;
+    height: 200px;
+    width: 800px;
+
+    align-items: center;
+}
+
+#pi-charts {
+
+    /* inner-flex */
+    align-items:center;
+    justify-content: space-around;
+    
+    /* mbpo */
+    padding-left:10em;
+    padding-right:10em;
+    
+    /* flex */
+    flex-grow:1;
 }
