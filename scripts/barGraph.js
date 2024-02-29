@@ -270,4 +270,4 @@ function findMax(weapon1, weapon2) {
 }
 
 // Initialize the plot with the first dataset
-update("Hammersaw", "Hammersaw", ["Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
+update("Hammersaw", "Hammersaw", ["2WD","Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
