@@ -125,7 +125,7 @@ var u;
 var v;
 // A function that create / update the plot for a given variable:
 export async function update(weapon1, weapon2, drive, category) {
-data = await sortData([weapon1,weapon2], drive, category);
+  data = await sortData([weapon1, weapon2], drive, category);
   svg1.selectAll("rect").remove();
   svg2.selectAll("rect").remove();
   svg1.select(".xAxis").remove();
@@ -134,36 +134,12 @@ data = await sortData([weapon1,weapon2], drive, category);
   svg2.select(".yAxis").remove();
   yHeight = findMax(weapon1, weapon2) * 1.1;
 
-  // X axis
-  x = d3.scaleBand()
-    .range([0, width])
-    .domain(Object.keys(data[weapon1]))
-    .padding(0.5);
-  xAxis = svg1.append("g")
-    .attr("class", "xAxis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
-
-  xAxis.select("path").remove();
-
   var y = d3.scaleLinear()
     .domain([-yHeight, yHeight])
     .range([height, 0]);
   yAxis = svg1.append("g")
     .attr("class", "yAxis")
     .call(d3.axisLeft(y));
-
-  // X axis
-  x2 = d3.scaleBand()
-    .range([0, width])
-    .domain(Object.keys(data[weapon2]))
-    .padding(0.5);
-  xAxis2 = svg2.append("g")
-    .attr("class", "xAxis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x2));
-
-  xAxis2.select("path").remove();
 
   var y2 = d3.scaleLinear()
     .domain([-yHeight, yHeight])
@@ -172,72 +148,126 @@ data = await sortData([weapon1,weapon2], drive, category);
     .attr("class", "yAxis")
     .call(d3.axisLeft(y2));
 
-  u = svg1.selectAll("rect")
-    .data(Object.entries(data[weapon1]));
-  console.log(Object.entries(data[weapon1]));
+  if (data[weapon1]) {
+    // X axis
+    x = d3.scaleBand()
+      .range([0, width])
+      .domain(Object.keys(data[weapon1]))
+      .padding(0.5);
+    xAxis = svg1.append("g")
+      .attr("class", "xAxis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
 
-  //The Wins
-  u
-    .enter()
-    .append("rect")
-    .attr("x", function (d) { return x(d[0]); })
-    .attr("y", function (d) { return y(d[1].W); })
-    .attr("width", x.bandwidth())
-    .attr("height", function (d) { return height - y(d[1].W - yHeight); })
-    .attr("fill", "#69b3a2");
+    u = svg1.selectAll("rect")
+      .data(Object.entries(data[weapon1]));
 
-  //The losses
-  u
-    .enter()
-    .append("rect")
-    .attr("x", function (d) { return x(d[0]); })
-    .attr("y", function (d) { return y(0); })
-    .attr("width", x.bandwidth())
-    .attr("height", function (d) { return height - y(d[1].L - yHeight); })
-    .attr("fill", "#da845f");
+    //The Wins
+    u
+      .enter()
+      .append("rect")
+      .attr("x", function (d) { return x(d[0]); })
+      .attr("y", function (d) { return y(d[1].W); })
+      .attr("width", x.bandwidth())
+      .attr("height", function (d) { return height - y(d[1].W - yHeight); })
+      .attr("fill", "#69b3a2");
 
-  console.log(Object.entries(data[weapon2]));
-  v = svg2.selectAll("rect")
-    .data(Object.entries(data[weapon2]));
+    //The losses
+    u
+      .enter()
+      .append("rect")
+      .attr("x", function (d) { return x(d[0]); })
+      .attr("y", function (d) { return y(0); })
+      .attr("width", x.bandwidth())
+      .attr("height", function (d) { return height - y(d[1].L - yHeight); })
+      .attr("fill", "#da845f");
+  } else {
+    // X axis
+    x = d3.scaleBand()
+      .range([0, width])
+      .domain(["Summary"])
+      .padding(0.5);
+    xAxis = svg1.append("g")
+      .attr("class", "xAxis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x));
+  }
 
-  //The wins
-  v
-    .enter()
-    .append("rect")
-    .attr("x", function (d) { return x2(d[0]); })
-    .attr("y", function (d) { return y2(d[1].W); })
-    .attr("width", x2.bandwidth())
-    .attr("height", function (d) { return height - y2(d[1].W - yHeight); })
-    .attr("fill", "#69b3a2");
+  if (data[weapon2]) {
+    // X axis
+    x2 = d3.scaleBand()
+      .range([0, width])
+      .domain(Object.keys(data[weapon2]))
+      .padding(0.5);
+    xAxis2 = svg2.append("g")
+      .attr("class", "xAxis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x2));
 
-  //The losses
-  v
-    .enter()
-    .append("rect")
-    .attr("x", function (d) { return x2(d[0]); })
-    .attr("y", function (d) { return y2(0); })
-    .attr("width", x2.bandwidth())
-    .attr("height", function (d) { return height - y(d[1].L - yHeight); })
-    .attr("fill", "#da845f");
+    v = svg2.selectAll("rect")
+      .data(Object.entries(data[weapon2]));
+
+    //The wins
+    v
+      .enter()
+      .append("rect")
+      .attr("x", function (d) { return x2(d[0]); })
+      .attr("y", function (d) { return y2(d[1].W); })
+      .attr("width", x2.bandwidth())
+      .attr("height", function (d) { return height - y2(d[1].W - yHeight); })
+      .attr("fill", "#69b3a2");
+
+    //The losses
+    v
+      .enter()
+      .append("rect")
+      .attr("x", function (d) { return x2(d[0]); })
+      .attr("y", function (d) { return y2(0); })
+      .attr("width", x2.bandwidth())
+      .attr("height", function (d) { return height - y(d[1].L - yHeight); })
+      .attr("fill", "#da845f");
+  }
+  else {
+    // X axis
+    x2 = d3.scaleBand()
+      .range([0, width])
+      .domain(["Summary"])
+      .padding(0.5);
+    xAxis2 = svg2.append("g")
+      .attr("class", "xAxis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(d3.axisBottom(x2));
+  }
+
+  xAxis.select("path").remove();
+
+  xAxis2.select("path").remove();
 }
 window.update = update;
 
 function findMax(weapon1, weapon2) {
-  var weaponData1 = Object.entries(data[weapon1]);
-  var weaponData2 = Object.entries(data[weapon2]);
-  var max = weaponData1[weaponData1.length - 1][1].W;
-
-  if (max < weaponData2[weaponData2.length - 1][1].W) {
-    max = weaponData2[weaponData2.length - 1][1].W;
+  console.log(data[weapon1]);
+  var max = 1;
+  if (data[weapon1]) {
+    var weaponData1 = Object.entries(data[weapon1]);
+    if (max < weaponData1[weaponData1.length - 1][1].W) {
+      max = weaponData1[weaponData1.length - 1][1].W;
+    }
+    if (max < weaponData1[weaponData1.length - 1][1].L) {
+      max = weaponData1[weaponData1.length - 1][1].L;
+    }
   }
-  if (max < weaponData1[weaponData1.length - 1][1].L) {
-    max = weaponData1[weaponData1.length - 1][1].L;
-  }
-  if (max < weaponData2[weaponData2.length - 1][1].L) {
-    max = weaponData2[weaponData2.length - 1][1].L;
+  if (data[weapon2]) {
+    var weaponData2 = Object.entries(data[weapon2]);
+    if (max < weaponData2[weaponData2.length - 1][1].W) {
+      max = weaponData2[weaponData2.length - 1][1].W;
+    }
+    if (max < weaponData2[weaponData2.length - 1][1].L) {
+      max = weaponData2[weaponData2.length - 1][1].L;
+    }
   }
   return max;
 }
 
 // Initialize the plot with the first dataset
-update("Hammersaw", "Hammersaw",["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"],["30lb", "12lb", "3lb"]);
+update("Hammersaw", "Hammersaw", ["Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
