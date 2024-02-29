@@ -68,18 +68,20 @@ var svg1 = d3.select("#barGraph1")
 var x = d3.scaleBand()
   .range([0, width])
   .domain(Object.keys(data1["Hammersaw"]))
-  .padding(0.2);
-svg1.append("g")
+  .padding(0.5);
+var xAxis = svg1.append("g")
+  .attr("class", "xAxis")
   .attr("transform", "translate(0," + height + ")")
   .call(d3.axisBottom(x).tickValues([]));
 
-const yHeight = 80;
+xAxis.select("path").remove();
+
+const yHeight = 200;
 // Add Y axis
 var y = d3.scaleLinear()
   .domain([-yHeight, yHeight])
   .range([height, 0]);
 svg1.append("g")
-  .attr("class", "myYaxis")
   .call(d3.axisLeft(y));
 
 // append the svg1 object to the body of the page
@@ -95,51 +97,78 @@ var svg2 = d3.select("#barGraph2")
 var x2 = d3.scaleBand()
   .range([0, width])
   .domain(Object.keys(data1["Hammersaw"]))
-  .padding(0.2);
-svg2.append("g")
+  .padding(0.5);
+var xAxis2 = svg2.append("g")
+  .attr("class", "xAxis")
   .attr("transform", "translate(0," + height + ")")
   .call(d3.axisBottom(x2).tickValues([]));
+
+xAxis2.select("path").remove();
 
 // Add Y axis
 var y2 = d3.scaleLinear()
   .domain([-yHeight, yHeight])
   .range([height, 0]);
 svg2.append("g")
-  .attr("class", "myYaxis")
   .call(d3.axisLeft(y2));
+
+svg1.append('line')
+  .style("stroke", "white")
+  .style("stroke-width", 0.5)
+  .attr("x1", 0)
+  .attr("y1", y(0))
+  .attr("x2", width)
+  .attr("y2", y(0));
+svg2.append('line')
+  .style("stroke", "white")
+  .style("stroke-width", 0.5)
+  .attr("x1", 0)
+  .attr("y1", y(0))
+  .attr("x2", width)
+  .attr("y2", y(0));
+
 var u;
 var v;
 // A function that create / update the plot for a given variable:
 export function update(weapon1, weapon2) {
+
+  svg1.selectAll("rect").remove();
+  svg2.selectAll("rect").remove();
+  svg1.select(".xAxis").remove();
+  svg2.select(".xAxis").remove();
+
   // X axis
   x = d3.scaleBand()
     .range([0, width])
     .domain(Object.keys(data1[weapon1]))
-    .padding(0.2);
-  svg1.append("g")
+    .padding(0.5);
+  xAxis = svg1.append("g")
+    .attr("class", "xAxis")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
+
+  xAxis.select("path").remove();
 
   // X axis
   x2 = d3.scaleBand()
     .range([0, width])
     .domain(Object.keys(data1[weapon2]))
-    .padding(0.2);
-  svg2.append("g")
+    .padding(0.5);
+  xAxis2 = svg2.append("g")
+    .attr("class", "xAxis")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x2));
 
+  xAxis2.select("path").remove();
+
   u = svg1.selectAll("rect")
     .data(Object.entries(data1[weapon1]));
-    console.log(Object.entries(data1[weapon1]));
+  console.log(Object.entries(data1[weapon1]));
 
   //The Wins
   u
     .enter()
     .append("rect")
-    .merge(u)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x(d[0]); })
     .attr("y", function (d) { return y(d[1].W); })
     .attr("width", x.bandwidth())
@@ -150,16 +179,13 @@ export function update(weapon1, weapon2) {
   u
     .enter()
     .append("rect")
-    .merge(u)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x(d[0]); })
     .attr("y", function (d) { return y(0); })
     .attr("width", x.bandwidth())
     .attr("height", function (d) { return height - y(d[1].L - yHeight); })
     .attr("fill", "#da845f");
 
-    console.log(Object.entries(data1[weapon2]));
+  console.log(Object.entries(data1[weapon2]));
   v = svg2.selectAll("rect")
     .data(Object.entries(data1[weapon2]));
 
@@ -167,9 +193,6 @@ export function update(weapon1, weapon2) {
   v
     .enter()
     .append("rect")
-    .merge(v)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x2(d[0]); })
     .attr("y", function (d) { return y2(d[1].W); })
     .attr("width", x2.bandwidth())
@@ -180,9 +203,6 @@ export function update(weapon1, weapon2) {
   v
     .enter()
     .append("rect")
-    .merge(v)
-    .transition()
-    .duration(1000)
     .attr("x", function (d) { return x2(d[0]); })
     .attr("y", function (d) { return y2(0); })
     .attr("width", x2.bandwidth())
@@ -191,4 +211,4 @@ export function update(weapon1, weapon2) {
 }
 window.update = update;
 // Initialize the plot with the first dataset
-update("Hammersaw", "Drum");
+update("Hammersaw", "Hammersaw");
