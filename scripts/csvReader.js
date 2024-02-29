@@ -9,7 +9,7 @@ function readData() {
 }
 
 // Turns the data into an array
-async function processData(){
+export async function processData(){
     try {
         const csvData = await readData(); // Wait for the promise to resolve
         return parseCSV(csvData); // Parse the CSV data
