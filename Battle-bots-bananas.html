@@ -26,9 +26,8 @@
         <div id="barGraph2"></div>
     </div>
     <script type="module" src="scripts\barGraph.js"></script>
-    <script>
+    <script type="module">
 
-        // create 2 data_set
         var data1 = [
             { group: "A", value: 4 },
             { group: "B", value: 16 },
@@ -37,9 +36,10 @@
         ];
 
         var data2 = [
-            { group: "E", value: 7 },
-            { group: "F", value: 1 },
-            { group: "G", value: 20 }
+            { group: "A", value: 7 },
+            { group: "B", value: 1 },
+            { group: "C", value: 20 },
+            {group: "D", value: 3 }
         ];
     </script>
     <button type="button" onclick="update(data2)">button</button>
