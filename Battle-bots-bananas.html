@@ -7,7 +7,7 @@
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script>
-      function getWeaponName(filePath) {
+      function c(filePath) {
         // Split the file path by backslash ("\") and get the last part
         var parts = filePath.split("\\");
         var weaponName = parts[parts.length - 1].replace(".gif", ""); // Remove the file extension if needed
@@ -20,8 +20,8 @@
 
         weaponType1Select.addEventListener("change", function () {
           update(
-            weaponType1Select.value,
-            weaponType2Select.value,
+            getWeaponName(weaponType1Select.value),
+            getWeaponName(weaponType2Select.value),
             [
               "2WD",
               "Tread",
@@ -38,8 +38,8 @@
 
         weaponType2Select.addEventListener("change", function () {
           update(
-            weaponType1Select.value,
-            weaponType2Select.value,
+            getWeaponName(weaponType1Select.value),
+            getWeaponName(weaponType2Select.value),
             [
               "2WD",
               "Tread",
