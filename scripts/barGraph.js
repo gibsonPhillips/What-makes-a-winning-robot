@@ -76,12 +76,13 @@ var xAxis = svg1.append("g")
 
 xAxis.select("path").remove();
 
-const yHeight = 200;
+var yHeight = findMax("Hammersaw", "Hammersaw") * 1.1;
 // Add Y axis
 var y = d3.scaleLinear()
   .domain([-yHeight, yHeight])
   .range([height, 0]);
-svg1.append("g")
+var yAxis = svg1.append("g")
+  .attr("class", "yAxis")
   .call(d3.axisLeft(y));
 
 // append the svg1 object to the body of the page
@@ -109,7 +110,8 @@ xAxis2.select("path").remove();
 var y2 = d3.scaleLinear()
   .domain([-yHeight, yHeight])
   .range([height, 0]);
-svg2.append("g")
+var yAxis2 = svg2.append("g")
+  .attr("class", "yAxis")
   .call(d3.axisLeft(y2));
 
 svg1.append('line')
@@ -136,6 +138,9 @@ export function update(weapon1, weapon2) {
   svg2.selectAll("rect").remove();
   svg1.select(".xAxis").remove();
   svg2.select(".xAxis").remove();
+  svg1.select(".yAxis").remove();
+  svg2.select(".yAxis").remove();
+  yHeight = findMax(weapon1, weapon2) * 1.1;
 
   // X axis
   x = d3.scaleBand()
@@ -149,6 +154,13 @@ export function update(weapon1, weapon2) {
 
   xAxis.select("path").remove();
 
+  var y = d3.scaleLinear()
+    .domain([-yHeight, yHeight])
+    .range([height, 0]);
+  yAxis = svg1.append("g")
+    .attr("class", "yAxis")
+    .call(d3.axisLeft(y));
+
   // X axis
   x2 = d3.scaleBand()
     .range([0, width])
@@ -160,6 +172,13 @@ export function update(weapon1, weapon2) {
     .call(d3.axisBottom(x2));
 
   xAxis2.select("path").remove();
+
+  var y2 = d3.scaleLinear()
+    .domain([-yHeight, yHeight])
+    .range([height, 0]);
+  yAxis2 = svg2.append("g")
+    .attr("class", "yAxis")
+    .call(d3.axisLeft(y2));
 
   u = svg1.selectAll("rect")
     .data(Object.entries(data1[weapon1]));
@@ -210,5 +229,23 @@ export function update(weapon1, weapon2) {
     .attr("fill", "#da845f");
 }
 window.update = update;
+
+function findMax(weapon1, weapon2) {
+  var weaponData1 = Object.entries(data1[weapon1]);
+  var weaponData2 = Object.entries(data1[weapon2]);
+  var max = weaponData1[weaponData1.length - 1][1].W;
+
+  if (max < weaponData2[weaponData2.length - 1][1].W) {
+    max = weaponData2[weaponData2.length - 1][1].W;
+  }
+  if (max < weaponData1[weaponData1.length - 1][1].L) {
+    max = weaponData1[weaponData1.length - 1][1].L;
+  }
+  if (max < weaponData2[weaponData2.length - 1][1].L) {
+    max = weaponData2[weaponData2.length - 1][1].L;
+  }
+  return max;
+}
+
 // Initialize the plot with the first dataset
 update("Hammersaw", "Hammersaw");
