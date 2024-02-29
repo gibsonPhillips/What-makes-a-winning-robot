@@ -15,7 +15,7 @@
       <img class="car2" id="car2" src="" alt="Second GIF" />
       <img
         class="effect"
-        src="C:\Users\Marlin\Desktop\data viz\final project\image\final effect collision.gif"
+        src="animation\final effect collision.gif"
         alt="Third GIF"
       />
       <div id="winBox"></div>
@@ -27,136 +27,55 @@
     <!-- Dropdown menus -->
     <select id="car1Dropdown">
       <option value="">Select Battlebot 1</option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Flipper.gif"
-      >
-        Flipper
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Hammer.gif"
-      >
-        Hammmer
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Meltybrain.gif"
-      >
-        Meltybrain
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Flamethrower.gif"
-      >
-        Flamethrower
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Lifter.gif"
-      >
-        Lifter
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Midcutter.gif"
-      >
-        Midcutter
-      </option>
-
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Overhead.gif"
-      >
-        Overhead
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Ring Spinner.gif"
-      >
-        RingSpinner
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Vertical Spinner.gif"
-      >
+      <option value=".\animation\final Flipper.gif">Flipper</option>
+      <option value=".\animation\final Hammer.gif">Hammmer</option>
+      <option value=".\animation\final Meltybrain.gif">Meltybrain</option>
+      <option value=".\animation\final Flamethrower.gif">Flamethrower</option>
+      <option value=".\animation\final Lifter.gif">Lifter</option>
+      <option value=".\animation\final Midcutter.gif">Midcutter</option>
+      <option value=".\animation\final Overhead.gif">Overhead</option>
+      <option value=".\animation\final Ring Spinner.gif">RingSpinner</option>
+      <option value=".\animation\final Vertical Spinner.gif">
         Vertical Spinner
       </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Thwack.gif"
-      >
-        Thwack
-      </option>
+      <option value=".\animation\final Thwack.gif">Thwack</option>
+      <option value=".\animation\final Drum.gif">Drum</option>
     </select>
 
     <select id="car2Dropdown">
       <option value="">Select Battlebot 2</option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Flipper.gif"
-      >
-        Flipper
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Hammer.gif"
-      >
-        Hammmer
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Meltybrain.gif"
-      >
-        Meltybrain
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Flamethrower.gif"
-      >
-        Flamethrower
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Lifter.gif"
-      >
-        Lifter
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Midcutter.gif"
-      >
-        Midcutter
-      </option>
-
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Overhead.gif"
-      >
-        Overhead
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Ring Spinner.gif"
-      >
-        RingSpinner
-      </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Vertical Spinner.gif"
-      >
+      <option value=".\animation\final Flipper.gif">Flipper</option>
+      <option value=".\animation\final Hammer.gif">Hammmer</option>
+      <option value=".\animation\final Meltybrain.gif">Meltybrain</option>
+      <option value=".\animation\final Flamethrower.gif">Flamethrower</option>
+      <option value=".\animation\final Lifter.gif">Lifter</option>
+      <option value=".\animation\final Midcutter.gif">Midcutter</option>
+      <option value=".\animation\final Overhead.gif">Overhead</option>
+      <option value=".\animation\final Ring Spinner.gif">RingSpinner</option>
+      <option value=".\animation\final Vertical Spinner.gif">
         Vertical Spinner
       </option>
-      <option
-        value="C:\Users\Marlin\Desktop\data viz\final project\image\final Thwack.gif"
-      >
-        Thwack
-      </option>
+      <option value=".\animation\final Thwack.gif">Thwack</option>
+      <option value=".\animation\final Drum.gif">Drum</option>
     </select>
 
     <!-- Start button -->
+    <script type="module">
+      import { sortData } from "./csvReader.js";
+      import { saveSummaryPercentageForWeapons } from "./csvReader.js";
 
-    <script>
-      // Function to parse CSV data from a link
-      // function parseCSVFromLink(url) {
-      //   return fetch(url)
-      //     .then((response) => response.text())
-      //     .then((data) => {
-      //       var lines = data.split("\n");
-      //       var result = [];
-      //       var headers = lines[0].split(",");
-      //       for (var i = 1; i < lines.length; i++) {
-      //         var obj = {};
-      //         var currentline = lines[i].split(",");
-      //         for (var j = 0; j < headers.length; j++) {
-      //           obj[headers[j].trim()] = currentline[j].trim();
-      //         }
-      //         result.push(obj);
-      //       }
-      //       return result;
-      //     });
-      // }
+      // Wrap the code inside an async function
+      console.log(
+        sortData(["Vertical Spinner", "Drum"], ["2WD", "4WD"], ["30lb", "3lb"])
+      );
+
+      console.log(
+        saveSummaryPercentageForWeapons(
+          ["Vertical Spinner", "Drum"],
+          ["2WD", "4WD"],
+          ["30lb", "3lb"]
+        )
+      );
 
       //Number generator
       function generateRandomNumber() {
@@ -180,7 +99,7 @@
       // JavaScript to handle start button click event
       document
         .getElementById("startButton")
-        .addEventListener("click", function () {
+        .addEventListener("click", async function () {
           var car1SelectedGif = document.getElementById("car1Dropdown").value;
           var car2SelectedGif = document.getElementById("car2Dropdown").value;
 
@@ -210,10 +129,35 @@
             //   .catch((error) => {
             //     console.error("Error fetching and parsing CSV file:", error);
             //   });
+            const weapon1 = getWeaponName(car1SelectedGif).toString();
+            console.log("1", weapon1);
+            const weapon2 = getWeaponName(car2SelectedGif).toString();
+            console.log("2", weapon2);
 
-            // Calculate win status for each bot
-            var average1 = 0.3;
-            var average2 = 0.6;
+            try {
+              // Call saveSummaryPercentageForWeapons to get summary percentages
+              const result = await saveSummaryPercentageForWeapons(
+                [weapon1, weapon2],
+                ["2WD", "4WD"],
+                ["30lb", "3lb"]
+              );
+
+              console.log("Summary Percentage for perc 111:", result.perc1);
+              console.log("Summary Percentage for perc 222:", result.perc2);
+
+              // Calculate win status for each bot
+              var average1 = result.perc1;
+              var average2 = result.perc2;
+            } catch (error) {
+              console.error("Error:", error);
+            }
+
+            console.log(
+              " average for perc 1:",
+              average1,
+              "average for perc 1:",
+              average2
+            );
 
             var win1, win2;
             do {
