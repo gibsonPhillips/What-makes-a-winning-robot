@@ -75,7 +75,25 @@ svg2.append("g")
 var u;
 var v;
 // A function that create / update the plot for a given variable:
-function update(data) {
+export function update(data) {
+
+  // X axis
+x = d3.scaleBand()
+.range([0, width])
+.domain(data.map(function (d) { return d.group; }))
+.padding(0.2);
+svg1.append("g")
+.attr("transform", "translate(0," + height + ")")
+.call(d3.axisBottom(x))
+
+// X axis
+x2 = d3.scaleBand()
+.range([0, width])
+.domain(data.map(function (d) { return d.group; }))
+.padding(0.2);
+svg2.append("g")
+.attr("transform", "translate(0," + height + ")")
+.call(d3.axisBottom(x2))
 
   u = svg1.selectAll("rect")
     .data(data)
@@ -98,15 +116,15 @@ function update(data) {
   v
     .enter()
     .append("rect")
-    .merge(u)
+    .merge(v)
     .transition()
     .duration(1000)
-    .attr("x", function (d) { return x(d.group); })
-    .attr("y", function (d) { return y(d.value); })
-    .attr("width", x.bandwidth())
-    .attr("height", function (d) { return height - y(d.value); })
+    .attr("x", function (d) { return x2(d.group); })
+    .attr("y", function (d) { return y2(d.value); })
+    .attr("width", x2.bandwidth())
+    .attr("height", function (d) { return height - y2(d.value); })
     .attr("fill", "#69b3a2");
 }
-
+window.update = update;
 // Initialize the plot with the first dataset
 update(data1);
