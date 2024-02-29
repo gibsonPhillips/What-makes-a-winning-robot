@@ -5,7 +5,28 @@ var data1;
 //console.log(data = await sortData(["Vertical Spinner","Drum"],["2WD","4WD"],["30lb","3lb"]));
 // create 2 data_set
 
-data1 = await processData();
+data1 = await sortData(["Hammersaw",
+  "Vertical Spinner",
+  "Drum",
+  "Undercutter",
+  "Midcutter",
+  "Grappler",
+  "Flamethrower",
+  "Drum Spinner",
+  "Beater",
+  "Hammer",
+  "Full Body Spinner",
+  "Flipper",
+  "Shell Spinner",
+  "Lifter",
+  "Overhead",
+  "MeltyBrain",
+  "Horizontal Spinmer",
+  "Crusher",
+  "Thwack",
+  "Ring Spinner",
+  "Hammer Saw",
+  "Flail"], ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
 console.log(data1);
 
 // var data1 = await sortData(["Hammersaw"],["2WD", "Tread","4WD","Shuffler","8WD","Bristle Drive","Swerve","Drive"],["30lb","12lb","3lb"]);
@@ -46,7 +67,7 @@ var svg1 = d3.select("#barGraph1")
 // X axis
 var x = d3.scaleBand()
   .range([0, width])
-  .domain(data1.map(function (d) { return d.Bot; }))
+  .domain(Object.keys(data1["Hammersaw"]))
   .padding(0.2);
 svg1.append("g")
   .attr("transform", "translate(0," + height + ")")
@@ -73,7 +94,7 @@ var svg2 = d3.select("#barGraph2")
 // X axis
 var x2 = d3.scaleBand()
   .range([0, width])
-  .domain(data1.map(function (d) { return d.Bot; }))
+  .domain(Object.keys(data1["Hammersaw"]))
   .padding(0.2);
 svg2.append("g")
   .attr("transform", "translate(0," + height + ")")
@@ -89,78 +110,85 @@ svg2.append("g")
 var u;
 var v;
 // A function that create / update the plot for a given variable:
-export function update() {
-
+export function update(weapon1, weapon2) {
   // X axis
   x = d3.scaleBand()
     .range([0, width])
-    .domain(data1.map(function (d) { return d.Bot; }))
+    .domain(Object.keys(data1[weapon1]))
     .padding(0.2);
   svg1.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).tickValues([]));
+    .call(d3.axisBottom(x));
 
   // X axis
   x2 = d3.scaleBand()
     .range([0, width])
-    .domain(data1.map(function (d) { return d.Bot; }))
+    .domain(Object.keys(data1[weapon2]))
     .padding(0.2);
   svg2.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x2).tickValues([]));
+    .call(d3.axisBottom(x2));
 
   u = svg1.selectAll("rect")
-    .data(data1);
+    .data(Object.entries(data1[weapon1]));
+    console.log(Object.entries(data1[weapon1]));
 
+  //The Wins
   u
     .enter()
     .append("rect")
     .merge(u)
     .transition()
     .duration(1000)
-    .attr("x", function (d) { return x(d.Bot); })
-    .attr("y", function (d) { return y(d.W); })
+    .attr("x", function (d) { return x(d[0]); })
+    .attr("y", function (d) { return y(d[1].W); })
     .attr("width", x.bandwidth())
-    .attr("height", function (d) { return height - y(d.W - yHeight); })
+    .attr("height", function (d) { return height - y(d[1].W - yHeight); })
     .attr("fill", "#69b3a2");
+
+  //The losses
   u
     .enter()
     .append("rect")
     .merge(u)
     .transition()
     .duration(1000)
-    .attr("x", function (d) { return x(d.Bot); })
+    .attr("x", function (d) { return x(d[0]); })
     .attr("y", function (d) { return y(0); })
     .attr("width", x.bandwidth())
-    .attr("height", function (d) { return height - y(d.L - yHeight); })
+    .attr("height", function (d) { return height - y(d[1].L - yHeight); })
     .attr("fill", "#da845f");
 
+    console.log(Object.entries(data1[weapon2]));
   v = svg2.selectAll("rect")
-    .data(data1);
+    .data(Object.entries(data1[weapon2]));
 
+  //The wins
   v
     .enter()
     .append("rect")
     .merge(v)
     .transition()
     .duration(1000)
-    .attr("x", function (d) { return x2(d.Bot); })
-    .attr("y", function (d) { return y2(d.W); })
+    .attr("x", function (d) { return x2(d[0]); })
+    .attr("y", function (d) { return y2(d[1].W); })
     .attr("width", x2.bandwidth())
-    .attr("height", function (d) { return height - y2(d.W - yHeight); })
+    .attr("height", function (d) { return height - y2(d[1].W - yHeight); })
     .attr("fill", "#69b3a2");
+
+  //The losses
   v
     .enter()
     .append("rect")
     .merge(v)
     .transition()
     .duration(1000)
-    .attr("x", function (d) { return x2(d.Bot); })
+    .attr("x", function (d) { return x2(d[0]); })
     .attr("y", function (d) { return y2(0); })
     .attr("width", x2.bandwidth())
-    .attr("height", function (d) { return height - y(d.L - yHeight); })
+    .attr("height", function (d) { return height - y(d[1].L - yHeight); })
     .attr("fill", "#da845f");
 }
 window.update = update;
 // Initialize the plot with the first dataset
-update();
+update("Hammersaw", "Drum");
