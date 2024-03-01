@@ -1,7 +1,7 @@
 // script.js
 
-import { sortData } from "./csvReader.js";
-import { saveSummaryPercentageForWeapons } from "./csvReader.js";
+import { sortData } from "scripts/csvReader.js";
+import { saveSummaryPercentageForWeapons } from "scripts/csvReader.js";
 
 // Wrap the code inside an async function
 console.log(
