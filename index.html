@@ -1,33 +1,40 @@
 <!DOCTYPE html>
-<div id="container">
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robot Efficacy</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" type="text/css" href="css/gifstyles.css" />
-    <link rel="stylesheet" href="styles.css" />
-
-    <title>Robot Efficacy</title>
   </head>
-
   <body>
     <h1></h1>
-    <li><a href="Battle-bots-bananas.html"> View Visualization </a></li>
+    <li><a href="Battle-bots-bananas.html">View Visualization</a></li>
+
+    <!-- Container for the GIFs -->
+    <div class="gif-container">
+      <!-- Placeholders for GIFs -->
+      <img
+        class="car1"
+        id="car1"
+        src="gif container\animation\final Drum Spinner.gif"
+        alt="First GIF"
+      />
+      <img
+        class="car2"
+        id="car2"
+        src="gif container\animation\final Drum.gif"
+        alt="Second GIF"
+      />
+      <img
+        class="effect"
+        src="gif container\animation\final effect collision.gif"
+        alt="Third GIF"
+      />
+      <div id="winBox"></div>
+      <button id="startButton">Start Animation</button>
+    </div>
+
+    <script src="scripts/gif_container.js" type="module"></script>
   </body>
-
-  <!-- Container for the GIFs -->
-  <!-- Container for the GIFs -->
-  <div class="gif-container">
-    <!-- Placeholders for GIFs -->
-    <img class="car1" id="car1" src="" alt="First GIF" />
-    <img class="car2" id="car2" src="" alt="Second GIF" />
-    <img
-      class="effect"
-      src="animation\final effect collision.gif"
-      alt="Third GIF"
-    />
-    <div id="winBox"></div>
-    <button id="startButton">Start Animation</button>
-
-    <!-- Element to display winning weapon name -->
-  </div>
-</div>
-<script type="module"></script>
+</html>
