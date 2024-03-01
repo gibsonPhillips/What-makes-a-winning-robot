@@ -366,6 +366,22 @@
                     )
                     .then((data) => {console.log("1")})
                     .then(() => { console.log('2')});
+                    window.updatePie1(
+                        c(weaponType1Select.value),
+                        [
+                            "2WD",
+                            "Tread",
+                            "4WD",
+                            "Shuffler",
+                            "8WD",
+                            "Bristle Drive",
+                            "Swerve",
+                            "Drive",
+                        ],
+                        ["30lb", "12lb", "3lb"]
+                    )
+                    .then((data) => {console.log("1")})
+                    .then(() => { console.log('2')});
                 });
 
                 weaponType2Select.addEventListener("change", function () {
@@ -383,7 +399,25 @@
                             "Drive",
                         ],
                         ["30lb", "12lb", "3lb"]
-                    );
+                    ).then((data) => {console.log("1")})
+                    .then(() => { console.log('2')});
+                    
+                    window.updatePie2(
+                        c(weaponType2Select.value),
+                        [
+                            "2WD",
+                            "Tread",
+                            "4WD",
+                            "Shuffler",
+                            "8WD",
+                            "Bristle Drive",
+                            "Swerve",
+                            "Drive",
+                        ],
+                        ["30lb", "12lb", "3lb"]
+                    )
+                    .then((data) => {console.log("1")})
+                    .then(() => { console.log('2')});
                 });
             });
         </script>
@@ -409,7 +443,6 @@
                             <option value=".\animation\final Midcutter.gif">Midcutter</option>
                             <option value=".\animation\final Grappler.gif">Grappler</option>
                             <option value=".\animation\final Flamethrower.gif">Flamethrower</option>
-                            <option value=".\animation\final Drum Spinner.gif">Drum Spinner</option>
                             <option value=".\animation\final Beater.gif">Beater</option>
                             <option value=".\animation\final Hammer.gif">Hammer</option>
                             <option value=".\animation\final Full Body Spinner.gif">
@@ -423,12 +456,11 @@
                             <option value=".\animation\final Overhead.gif">Overhead</option>
                             <option value=".\animation\final MeltyBrain.gif">MeltyBrain</option>
                             <option value=".\animation\final Horizontal Spinmer.gif">
-                                Horizontal Spinmer
+                                Horizontal Spinner
                             </option>
                             <option value=".\animation\final Crusher.gif">Crusher</option>
                             <option value=".\animation\final Thwack.gif">Thwack</option>
                             <option value=".\animation\final Ring Spinner.gif">Ring Spinner</option>
-                            <option value=".\animation\final Hammer Saw.gif">Hammer Saw</option>
                             <option value=".\animation\final Flail.gif">Flail</option>
                         </select>
                     </div>

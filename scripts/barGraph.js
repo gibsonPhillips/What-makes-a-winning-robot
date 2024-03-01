@@ -1,31 +1,10 @@
-import { processData, sortData } from "./csvReader.js";
+import { sortData } from "./csvReader.js";
 console.log(d3);
 var data;
 //console.log(data = await sortData(["Vertical Spinner","Drum"],["2WD","4WD"],["30lb","3lb"]));
 // create 2 data_set
 
-data = await sortData(["Hammersaw",
-  "Vertical Spinner",
-  "Drum",
-  "Undercutter",
-  "Midcutter",
-  "Grappler",
-  "Flamethrower",
-  "Drum Spinner",
-  "Beater",
-  "Hammer",
-  "Full Body Spinner",
-  "Flipper",
-  "Shell Spinner",
-  "Lifter",
-  "Overhead",
-  "MeltyBrain",
-  "Horizontal Spinmer",
-  "Crusher",
-  "Thwack",
-  "Ring Spinner",
-  "Hammer Saw",
-  "Flail"], ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
+data = await sortData(["Hammersaw"], ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
 console.log(data);
 
 // var data = await sortData(["Hammersaw"],["2WD", "Tread","4WD","Shuffler","8WD","Bristle Drive","Swerve","Drive"],["30lb","12lb","3lb"]);
