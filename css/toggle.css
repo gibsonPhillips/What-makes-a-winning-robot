@@ -29,7 +29,7 @@
 }
 
 .checkbox:checked+.switch {
-    background-color: #1d9252;
+    background-color: rgb(85,164,32);
 }
 
 .checkbox {

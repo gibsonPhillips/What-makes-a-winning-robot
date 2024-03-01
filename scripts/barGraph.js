@@ -148,7 +148,7 @@ export async function updateBarGraphs(weapon1, weapon2, drive, category) {
       .attr("y", function (d) { return y(d[1].W); })
       .attr("width", x.bandwidth())
       .attr("height", function (d) { return height - y(d[1].W - yHeight); })
-      .attr("fill", "#69b3a2");
+      .attr("fill", "rgb(85,164,32)");
 
     //The losses
     u
@@ -158,7 +158,7 @@ export async function updateBarGraphs(weapon1, weapon2, drive, category) {
       .attr("y", function (d) { return y(0); })
       .attr("width", x.bandwidth())
       .attr("height", function (d) { return height - y(d[1].L - yHeight); })
-      .attr("fill", "#da845f");
+      .attr("fill", "rgb(121,6,6)");
   } else {
     // X axis
     x = d3.scaleBand()
@@ -193,7 +193,7 @@ export async function updateBarGraphs(weapon1, weapon2, drive, category) {
       .attr("y", function (d) { return y2(d[1].W); })
       .attr("width", x2.bandwidth())
       .attr("height", function (d) { return height - y2(d[1].W - yHeight); })
-      .attr("fill", "#69b3a2");
+      .attr("fill", "rgb(85,164,32)");
 
     //The losses
     v
@@ -203,7 +203,7 @@ export async function updateBarGraphs(weapon1, weapon2, drive, category) {
       .attr("y", function (d) { return y2(0); })
       .attr("width", x2.bandwidth())
       .attr("height", function (d) { return height - y(d[1].L - yHeight); })
-      .attr("fill", "#da845f");
+      .attr("fill", "rgb(121,6,6)");
   }
   else {
     // X axis
