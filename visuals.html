@@ -6,6 +6,8 @@
         <link rel="stylesheet" type="text/css" href="css/toggle.css" />
         <link rel="stylesheet" type="text/css" href="css/visuals.css" />
         <link rel="stylesheet" type="text/css" href="css/pieChart.css" />
+        <link rel="stylesheet" type="text/css" href="css/gif.css" />
+
 
 
         <!-- Include D3.js library -->
@@ -39,73 +41,80 @@
                     update();
                 });
                 function update() {
-                window.update(
-                    c(weaponType1Select.value),
-                    c(weaponType2Select.value),
-                    createDriveArr(),
-                    createWeightArr()
-                );
-                window.updatePie1(
-                    c(weaponType1Select.value),
-                    createDriveArr(),
-                    createWeightArr()
-                );
-                window.updatePie2(
-                    c(weaponType2Select.value),
-                    createDriveArr(),
-                    createWeightArr()   
-                );
-            
-            }
 
-            function createDriveArr() {
-                var driveArr = [];
-                var i = 0;
-                if (TWDCheck.checked) {
-                    driveArr[i] = "2WD";
-                    i++;
+                    window.gifAnimation(
+                        weaponType1Select.value,
+                        weaponType2Select.value,
+                        createDriveArr(),
+                        createWeightArr());
+
+                    window.update(
+                        c(weaponType1Select.value),
+                        c(weaponType2Select.value),
+                        createDriveArr(),
+                        createWeightArr()
+                    );
+                    window.updatePie1(
+                        c(weaponType1Select.value),
+                        createDriveArr(),
+                        createWeightArr()
+                    );
+                    window.updatePie2(
+                        c(weaponType2Select.value),
+                        createDriveArr(),
+                        createWeightArr()
+                    );
+
                 }
-                if (FWDCheck.checked) {
-                    driveArr[i] = "4WD";
-                    i++;
+
+                function createDriveArr() {
+                    var driveArr = [];
+                    var i = 0;
+                    if (TWDCheck.checked) {
+                        driveArr[i] = "2WD";
+                        i++;
+                    }
+                    if (FWDCheck.checked) {
+                        driveArr[i] = "4WD";
+                        i++;
+                    }
+                    if (ShufflerCheck.checked) {
+                        driveArr[i] = "Shuffler";
+                        i++;
+                    }
+                    if (OtherCheck.checked) {
+                        driveArr[i] = "Swerve Drive";
+                        i++;
+                        driveArr[i] = "Bristle Drive";
+                        i++;
+                        driveArr[i] = "8WD";
+                        i++;
+                        driveArr[i] = "Tread";
+                        i++;
+                    }
+                    console.log(driveArr);
+                    return driveArr;
                 }
-                if (ShufflerCheck.checked) {
-                    driveArr[i] = "Shuffler";
-                    i++;
+                function createWeightArr() {
+                    var weightArr = [];
+                    var i = 0;
+                    if (Threelb.checked) {
+                        weightArr[i] = "3lb";
+                        i++;
+                    }
+                    if (Thirtylb.checked) {
+                        weightArr[i] = "30lb";
+                        i++;
+                    }
+                    if (Twelvelb.checked) {
+                        weightArr[i] = "12lb";
+                        i++;
+                    }
+                    console.log(weightArr);
+                    return weightArr;
                 }
-                if (OtherCheck.checked) {
-                    driveArr[i] = "Swerve Drive";
-                    i++;
-                    driveArr[i] = "Bristle Drive";
-                    i++;
-                    driveArr[i] = "8WD";
-                    i++;
-                    driveArr[i] = "Tread";
-                    i++;
-                }
-                console.log(driveArr);
-                return driveArr;
-            }
-            function createWeightArr() {
-                var weightArr = [];
-                var i = 0;
-                if (Threelb.checked) {
-                    weightArr[i] = "3lb";
-                    i++;
-                }
-                if (Thirtylb.checked) {
-                    weightArr[i] = "30lb";
-                    i++;
-                }
-                if (Twelvelb.checked) {
-                    weightArr[i] = "12lb";
-                    i++;
-                }
-                console.log(weightArr);
-                return weightArr;
-            }
-        });
-            
+            });
+
         </script>
     </head>
 
@@ -185,22 +194,65 @@
                     </div>
                 </div>
 
-                <div class="hbox" id="gif">gif</div>
 
-                <div class="hbox" id="pi-charts">
-                    <div class="vbox" id="chart-and-label-1">
-                        <!-- Container for the pie chart -->
-                        <div id="pie-1"></div>
-                        <p id="label-1">label 1</p>
+                <div class="vbox" id="gifs">
+                    <div class="gif-container">
+                        <!-- Placeholders for GIFs -->
+                        <img class="car1" id="car1" src="" alt="First GIF" />
+                        <img class="car2" id="car2" src="" alt="Second GIF" />
+                        <img class="effect" src="animation\final effect collision.gif" alt="Third GIF" />
+                        <div id="winBox"></div>
+                        <button id="startButton">Start Animation</button>
+
+                        <!-- Element to display winning weapon name -->
                     </div>
-                    <div class="vbox" id="chart-and-label-2">
-                        <div id="pie-2"></div>
-                        <p id="label-2">label 2</p>
+
+                    <!-- Dropdown menus -->
+                    <select id="car1Dropdown">
+                        <option value="">Select Battlebot 1</option>
+                        <option value=".\animation\final Hammer.gif">Hammmer</option>
+                        <option value=".\animation\final Meltybrain.gif">Meltybrain</option>
+                        <option value=".\animation\final Flamethrower.gif">Flamethrower</option>
+                        <option value=".\animation\final Lifter.gif">Lifter</option>
+                        <option value=".\animation\final Midcutter.gif">Midcutter</option>
+                        <option value=".\animation\final Overhead.gif">Overhead</option>
+                        <option value=".\animation\final Ring Spinner.gif">RingSpinner</option>
+                        <option value=".\animation\final Vertical Spinner.gif">
+                            Vertical Spinner
+                        </option>
+                        <option value=".\animation\final Thwack.gif">Thwack</option>
+                        <option value=".\animation\final Drum.gif">Drum</option>
+                    </select>
+
+                    <select id="car2Dropdown">
+                        <option value="">Select Battlebot 2</option>
+                        <option value=".\animation\final Flipper.gif">Flipper</option>
+                        <option value=".\animation\final Hammer.gif">Hammmer</option>
+                        <option value=".\animation\final Meltybrain.gif">Meltybrain</option>
+                        <option value=".\animation\final Flamethrower.gif">Flamethrower</option>
+                        <option value=".\animation\final Lifter.gif">Lifter</option>
+                        <option value=".\animation\final Midcutter.gif">Midcutter</option>
+                        <option value=".\animation\final Overhead.gif">Overhead</option>
+                        <option value=".\animation\final Ring Spinner.gif">RingSpinner</option>
+                        <option value=".\animation\final Vertical Spinner.gif">
+                            Vertical Spinner
+                        </option>
+                        <option value=".\animation\final Thwack.gif">Thwack</option>
+                        <option value=".\animation\final Drum.gif">Drum</option>
+                    </select>
+
+                    <div class="hbox" id="pi-charts">
+                        <div class="vbox" id="chart-and-label-1">
+                            <!-- Container for the pie chart -->
+                            <div id="pie-1"></div>
+                            <p id="label-1">label 1</p>
+                        </div>
+                        <div class="vbox" id="chart-and-label-2">
+                            <div id="pie-2"></div>
+                            <p id="label-2">label 2</p>
+                        </div>
                     </div>
                 </div>
-
-
-
             </div>
 
 
@@ -252,6 +304,10 @@
                     <p id="toggle-labels">3 lb</p>
                 </div>
             </div>
+
+            <!-- gif start button script -->
+            <script type="module" src="./scripts/gif_container.js"></script>
+
             <script type="module" src="scripts/csvReader.js"></script>
             <script type="module" src="scripts/barGraph.js"></script>
             <script type="module" src="scripts/pieGraph1.js"></script>
