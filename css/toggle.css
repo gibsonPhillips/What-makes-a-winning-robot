@@ -21,7 +21,7 @@
     top: 1px;
     left: 1px;
     transition: all 0.2s;
-    
+
 }
 
 .checkbox:checked+.switch::after {
@@ -29,7 +29,7 @@
 }
 
 .checkbox:checked+.switch {
-    background-color: rgb(85,164,32);
+    background-color: rgb(85, 164, 32);
 }
 
 .checkbox {
@@ -73,7 +73,7 @@
 }
 
 #drive-toggles {
-    background-color: rgb(90 ,39,41);
+    background-color: rgb(90, 39, 41);
 
     height: 100vh;
 
@@ -88,6 +88,7 @@
     align-items: center;
 
     /* mbpo */
+    padding: 3em;
     padding-top: 25vh;
     padding-bottom: 25vh;
 
@@ -97,7 +98,7 @@
     background-color: rgb(66, 28, 29);
 
     height: 100vh;
-    
+
     /* flex */
     justify-content: space-around;
     flex-grow: 2;
@@ -109,6 +110,7 @@
     align-items: center;
 
     /* mbpo */
+    padding: 3em;
     padding-top: 25vh;
     padding-bottom: 25vh;
 }
