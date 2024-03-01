@@ -44,7 +44,7 @@
     /* placement */
     position: absolute;
     top: 0px;
-    
+
     /* inner-placement */
     text-align: center;
 
@@ -63,7 +63,7 @@
     /* inner-placement */
     text-align: center;
 
-/* mbpo */
+    /* mbpo */
     border-bottom: 2px solid black;
     padding: 0px;
 }
@@ -75,7 +75,7 @@
 
     /* flex */
     flex-direction: column;
-    flex-grow: 1;
+    flex-grow: 2;
 
     /* inner-flex */
     display: flex;
@@ -96,7 +96,7 @@
 
     /* flex */
     justify-content: space-around;
-    flex-grow: 1;
+    flex-grow: 2;
 
     /* inner-flex */
     display: flex;
