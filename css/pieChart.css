@@ -1,4 +1,12 @@
-        #pie-chart-container {
+        #pie-1 {
+            width: 10em;
+            height: 10em;
+            margin: 0 auto;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #pie-2 {
             width: 10em;
             height: 10em;
             margin: 0 auto;
