@@ -1,104 +1,146 @@
 <!DOCTYPE html>
 <div id="container">
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script>
+      function c(filePath) {
+        // Split the file path by backslash ("\") and get the last part
+        var parts = filePath.split("\\");
+        var weaponName = parts[parts.length - 1].replace(".gif", ""); // Remove the file extension if needed
+        return weaponName.replace("final ", ""); // Remove "final" from the weapon name
+      }
 
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/style.css" />
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-        <script src="https://d3js.org/d3.v6.min.js"></script>
-        <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var weaponType1Select = document.getElementById("WeaponType1");
+        var weaponType2Select = document.getElementById("WeaponType2");
 
-            document.addEventListener("DOMContentLoaded", function () {
-                var weaponType1Select = document.getElementById("WeaponType1");
-                var weaponType2Select = document.getElementById("WeaponType2");
+        weaponType1Select.addEventListener("change", function () {
+          update(
+            getWeaponName(weaponType1Select.value),
+            getWeaponName(weaponType2Select.value),
+            [
+              "2WD",
+              "Tread",
+              "4WD",
+              "Shuffler",
+              "8WD",
+              "Bristle Drive",
+              "Swerve",
+              "Drive",
+            ],
+            ["30lb", "12lb", "3lb"]
+          );
+        });
 
-                weaponType1Select.addEventListener("change", function () {
-                    update(weaponType1Select.value, weaponType2Select.value,["2WD","Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"],["30lb", "12lb", "3lb"]);
-                });
+        weaponType2Select.addEventListener("change", function () {
+          update(
+            getWeaponName(weaponType1Select.value),
+            getWeaponName(weaponType2Select.value),
+            [
+              "2WD",
+              "Tread",
+              "4WD",
+              "Shuffler",
+              "8WD",
+              "Bristle Drive",
+              "Swerve",
+              "Drive",
+            ],
+            ["30lb", "12lb", "3lb"]
+          );
+        });
+      });
+    </script>
+    <title>Graphs and charts</title>
+  </head>
 
-                weaponType2Select.addEventListener("change", function () {
-                    update(weaponType1Select.value, weaponType2Select.value,["2WD","Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"],["30lb", "12lb", "3lb"]);
-                });
-
-                
-            });
-        </script>
-        <title> Graphs and charts </title>
-    </head>
-
-    <body>
-        <h1>Wow what cool graphs!</h1>
-        <li><a href="index.html">Back to Home?</a></li>
-    </body>
-
-
-
+  <body>
+    <h1>Wow what cool graphs!</h1>
+    <li><a href="index.html">Back to Home?</a></li>
+  </body>
 </div>
 
 <body>
-    <div class="hbox">
-        <div id="barGraph1">
-            <label for="WeaponType1">Choose a Weapon Type:</label>
-            <select name="WeaponType1" id="WeaponType1">
-                <option value="Hammersaw">Hammersaw</option>
-                <option value="Vertical Spinner">Vertical Spinner</option>
-                <option value="Drum">Drum</option>
-                <option value="Undercutter">Undercutter</option>
-                <option value="Midcutter">Midcutter</option>
-                <option value="Grappler">Grappler</option>
-                <option value="Flamethrower">Flamethrower</option>
-                <option value="Drum Spinner">Drum Spinner</option>
-                <option value="Beater">Beater</option>
-                <option value="Hammer">Hammer</option>
-                <option value="Full Body Spinner">Full Body Spinner</option>
-                <option value="Flipper">Flipper</option>
-                <option value="Shell Spinner">Shell Spinner</option>
-                <option value="Lifter">Lifter</option>
-                <option value="Overhead">Overhead</option>
-                <option value="MeltyBrain">MeltyBrain</option>
-                <option value="Horizontal Spinmer">Horizontal Spinmer</option>
-                <option value="Crusher">Crusher</option>
-                <option value="Thwack">Thwack</option>
-                <option value="Ring Spinner">Ring Spinner</option>
-                <option value="Hammer Saw">Hammer Saw</option>
-                <option value="Flail">Flail</option>
-            </select>
-        </div>
-        <div id="barGraph2">
-            <label for="WeaponType2">Choose a Weapon Type:</label>
-            <select name="WeaponType2" id="WeaponType2">
-                <option value="Hammersaw">Hammersaw</option>
-                <option value="Vertical Spinner">Vertical Spinner</option>
-                <option value="Drum">Drum</option>
-                <option value="Undercutter">Undercutter</option>
-                <option value="Midcutter">Midcutter</option>
-                <option value="Grappler">Grappler</option>
-                <option value="Flamethrower">Flamethrower</option>
-                <option value="Drum Spinner">Drum Spinner</option>
-                <option value="Beater">Beater</option>
-                <option value="Hammer">Hammer</option>
-                <option value="Full Body Spinner">Full Body Spinner</option>
-                <option value="Flipper">Flipper</option>
-                <option value="Shell Spinner">Shell Spinner</option>
-                <option value="Lifter">Lifter</option>
-                <option value="Overhead">Overhead</option>
-                <option value="MeltyBrain">MeltyBrain</option>
-                <option value="Horizontal Spinmer">Horizontal Spinmer</option>
-                <option value="Crusher">Crusher</option>
-                <option value="Thwack">Thwack</option>
-                <option value="Ring Spinner">Ring Spinner</option>
-                <option value="Hammer Saw">Hammer Saw</option>
-                <option value="Flail">Flail</option>
-            </select>
-        </div>
-        <div id="KOs">
-
-
-        </div>
+  <div class="hbox">
+    <div id="barGraph1">
+      <label for="WeaponType1">Choose a Weapon Type:</label>
+      <select name="WeaponType1" id="WeaponType1">
+        <option value=".\animation\final Hammersaw.gif">Hammersaw</option>
+        <option value=".\animation\final Vertical Spinner.gif">
+          Vertical Spinner
+        </option>
+        <option value=".\animation\final Drum.gif">Drum</option>
+        <option value=".\animation\final Undercutter.gif">Undercutter</option>
+        <option value=".\animation\final Midcutter.gif">Midcutter</option>
+        <option value=".\animation\final Grappler.gif">Grappler</option>
+        <option value=".\animation\final Flamethrower.gif">Flamethrower</option>
+        <option value=".\animation\final Drum Spinner.gif">Drum Spinner</option>
+        <option value=".\animation\final Beater.gif">Beater</option>
+        <option value=".\animation\final Hammer.gif">Hammer</option>
+        <option value=".\animation\final Full Body Spinner.gif">
+          Full Body Spinner
+        </option>
+        <option value=".\animation\final Flipper.gif">Flipper</option>
+        <option value=".\animation\final Shell Spinner.gif">
+          Shell Spinner
+        </option>
+        <option value=".\animation\final Lifter.gif">Lifter</option>
+        <option value=".\animation\final Overhead.gif">Overhead</option>
+        <option value=".\animation\final MeltyBrain.gif">MeltyBrain</option>
+        <option value=".\animation\final Horizontal Spinmer.gif">
+          Horizontal Spinmer
+        </option>
+        <option value=".\animation\final Crusher.gif">Crusher</option>
+        <option value=".\animation\final Thwack.gif">Thwack</option>
+        <option value=".\animation\final Ring Spinner.gif">Ring Spinner</option>
+        <option value=".\animation\final Hammer Saw.gif">Hammer Saw</option>
+        <option value=".\animation\final Flail.gif">Flail</option>
+      </select>
     </div>
-    <script type="module" src="scripts\barGraph.js"></script>
-    <button type="button" onclick="update()">button</button>
+    <div id="barGraph2">
+      <label for="WeaponType2">Choose a Weapon Type:</label>
+      <select name="WeaponType2" id="WeaponType2">
+        <option value=".\animation\final Hammersaw.gif">Hammersaw</option>
+        <option value=".\animation\final Vertical Spinner.gif">
+          Vertical Spinner
+        </option>
+        <option value=".\animation\final Drum.gif">Drum</option>
+        <option value=".\animation\final Undercutter.gif">Undercutter</option>
+        <option value=".\animation\final Midcutter.gif">Midcutter</option>
+        <option value=".\animation\final Grappler.gif">Grappler</option>
+        <option value=".\animation\final Flamethrower.gif">Flamethrower</option>
+        <option value=".\animation\final Drum Spinner.gif">Drum Spinner</option>
+        <option value=".\animation\final Beater.gif">Beater</option>
+        <option value=".\animation\final Hammer.gif">Hammer</option>
+        <option value=".\animation\final Full Body Spinner.gif">
+          Full Body Spinner
+        </option>
+        <option value=".\animation\final Flipper.gif">Flipper</option>
+        <option value=".\animation\final Shell Spinner.gif">
+          Shell Spinner
+        </option>
+        <option value=".\animation\final Lifter.gif">Lifter</option>
+        <option value=".\animation\final Overhead.gif">Overhead</option>
+        <option value=".\animation\final MeltyBrain.gif">MeltyBrain</option>
+        <option value=".\animation\final Horizontal Spinmer.gif">
+          Horizontal Spinmer
+        </option>
+        <option value=".\animation\final Crusher.gif">Crusher</option>
+        <option value=".\animation\final Thwack.gif">Thwack</option>
+        <option value=".\animation\final Ring Spinner.gif">Ring Spinner</option>
+        <option value=".\animation\final Hammer Saw.gif">Hammer Saw</option>
+        <option value=".\animation\final Flail.gif">Flail</option>
+      </select>
+    </div>
+    <div id="KOs"></div>
+  </div>
+
+  <script type="module" src="scripts\barGraph.js"></script>
+  <button type="button" onclick="update()">button</button>
 </body>
 <script type="module" src="scripts\csvReader.js"></script>
 <script type="module" src="scripts\pieGraph.js"></script>

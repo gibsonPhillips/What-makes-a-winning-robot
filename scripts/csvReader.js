@@ -124,4 +124,45 @@ function getWeaponInfo(data){
     return data;
 }
 
+export async function saveSummaryPercentageForWeapons(weapon, drive, category) {
+    try {
+        // Wait for the promise to resolve and get the summaryData
+        const summaryData = await sortData(weapon, drive, category);
+
+        let perc1, perc2; // Variables to store summary percentages for each weapon
+        let weaponCount = 0; // Counter to track the number of weapons iterated
+
+        // Iterate over each weapon in the summaryData
+        for (const weaponName in summaryData) {
+            if (summaryData.hasOwnProperty(weaponName)) {
+                // Access the data for each weapon
+                const weaponData = summaryData[weaponName];
+
+                // Access the summary percentage for the weapon
+                const summaryPercentage = weaponData.Summary.perc;
+
+                // Store summary percentage for the first weapon
+                if (weaponCount === 0) {
+                    perc1 = summaryPercentage;
+                }
+                // Store summary percentage for the second weapon
+                else if (weaponCount === 1) {
+                    perc2 = summaryPercentage;
+                }
+
+                weaponCount++; // Increment weapon count
+            }
+        }
+
+        console.log('Summary Percentage for perc 11:', perc1);
+        console.log('Summary Percentage for perc 22:', perc2);
+
+        // Return perc1 and perc2
+        return { perc1, perc2 };
+    } catch (error) {
+        console.error('Error saving summary percentage:', error);
+        throw error;
+    }
+}
+
 

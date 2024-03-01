@@ -1,0 +1,187 @@
+
+      /* CSS styles for the container */
+      .gif-container {
+        position: relative;
+        width: 800px;
+        /* Adjust the width as needed */
+        height: 200px;
+        /* Adjust the height as needed */
+        border: 2px solid black;
+        /* Black outline */
+        overflow: hidden;
+        /* Ensure GIFs stay within the container */
+   
+      }
+
+      /* CSS styles for the GIFs */
+      .car1,
+      .car2,
+      .effect {
+        position: absolute;
+        bottom: 0;
+        /* Align the GIFs to the bottom */
+        width: 200px;
+        /* Adjust the width as needed */
+        height: auto;
+        /* Maintain aspect ratio */
+      }
+
+      .car1 {
+        left: -200px;
+        /* Start from outside the container */
+      }
+
+      .car2 {
+        right: -200px;
+        /* Start from outside the container */
+        transform: scaleX(-1);
+        /* Flip the second GIF horizontally */
+      }
+
+      .effect {
+        left: calc(50% - 100px);
+        /* Start from the middle of the container */
+        opacity: 0;
+        /* Initially hidden */
+      }
+
+      /* Keyframes for the animation */
+      @keyframes moveRight1 {
+        0% {
+          left: -200px;
+          /* Move out of the container */
+        }
+
+        20% {
+          left: calc(50% - 150px);
+          /* Move to the middle of the container */
+        }
+
+        40% {
+          left: calc(30% - 200px);
+          /* Move out of the container */
+        }
+
+        60% {
+          left: calc(50% - 200px);
+          /* Move to the middle of the container */
+        }
+
+        100% {
+          right: calc(100%);
+          /* Stop at the middle of the container */
+        }
+      }
+
+      @keyframes moveLeft1 {
+        0% {
+          right: -200px;
+          /* Move out of the container */
+        }
+
+        20% {
+          right: calc(50% - 150px);
+          /* Move to the middle of the container */
+        }
+
+        40% {
+          right: calc(30% - 200px);
+          /* Move out of the container */
+        }
+
+        60% {
+          right: calc(50% - 200px);
+          /* Move to the middle of the container */
+        }
+
+        100% {
+          right: calc(100%);
+          /* Stop at the middle of the container */
+        }
+      }
+
+      @keyframes moveRight2 {
+        0% {
+          left: -200px;
+          /* Move out of the container */
+        }
+
+        20% {
+          left: calc(50% - 150px);
+          /* Move to the middle of the container */
+        }
+
+        40% {
+          left: calc(30% - 200px);
+          /* Move out of the container */
+        }
+
+        60% {
+          left: calc(50% - 200px);
+          /* Move to the middle of the container */
+        }
+
+        100% {
+          left: calc(100%);
+          /* Stop at the right of the container */
+        }
+      }
+
+      @keyframes moveLeft2 {
+        0% {
+          right: -200px;
+          /* Move out of the container */
+        }
+
+        20% {
+          right: calc(50% - 150px);
+          /* Move to the middle of the container */
+        }
+
+        40% {
+          right: calc(30% - 200px);
+          /* Move out of the container */
+        }
+
+        60% {
+          right: calc(50% - 200px);
+          /* Move to the middle of the container */
+        }
+
+        100% {
+          right: -200px;
+          /* Stop at the middle of the container */
+        }
+      }
+
+      @keyframes appearAndDisappear {
+        0% {
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        60% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 0;
+        }
+      }
+/* CSS styles for the button */
+/* #startButton {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 320px;
+    transition: background-color 0.3s ease;
+}
+
+#startButton:hover {
+    background-color: #0056b3;
+} */
