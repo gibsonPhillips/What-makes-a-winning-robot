@@ -44,6 +44,9 @@
     /* placement */
     position: absolute;
     top: 0px;
+    
+    /* inner-placement */
+    text-align: center;
 
     /* mbpo */
     border-bottom: 2px solid black;
@@ -55,6 +58,10 @@
     /* placement */
     position: absolute;
     top: 0px;
+    flex-wrap: wrap;
+
+    /* inner-placement */
+    text-align: center;
 
 /* mbpo */
     border-bottom: 2px solid black;
@@ -100,4 +107,8 @@
     /* mbpo */
     padding-top: 25vh;
     padding-bottom: 25vh;
+}
+
+#toggle-labels {
+    width: 100%;
 }

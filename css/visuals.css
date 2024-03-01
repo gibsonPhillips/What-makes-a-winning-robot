@@ -11,7 +11,7 @@
 }
 
 #graph-gifs-and-pi-charts {
-    background-color: darkgreen;
+    background-color: lightgreen;
 
     /* inner-flex */
     align-items: center;
@@ -35,7 +35,7 @@
     width:100%;
 
     /* flex */
-    flex-grow: 2
+    flex-grow: 5
 }
 
 #gif {
@@ -60,4 +60,8 @@
 
     /* flex */
     flex-grow: 1;
+}
+
+#label-1, #label-2 {
+    text-align: center;
 }
