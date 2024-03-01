@@ -1,0 +1,97 @@
+body {
+    background-color: #000000;
+    /* Black background color */
+    display: flex;
+    justify-content: space-between;
+    /* Arrange items with space between them */
+    align-items: center;
+    /* Center items vertically */
+}
+
+.container {
+    max-width: 50%;
+    /* Limit container width to half of the viewport */
+    padding: 20px;
+    /* Add some padding */
+    text-align: left;
+    /* Left align text */
+}
+
+.background-text {
+    color: rgb(242, 157, 0);
+    font-size: 80px;
+    /* Larger font size */
+    margin-bottom: 20px;
+    /* Add some space below */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Cool font family */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* Text shadow effect */
+    font-weight: bold;
+    /* Make the text bold */
+}
+
+.content {
+    color: white;
+    font-size: 24px;
+    /* Medium font size */
+    margin-bottom: 40px;
+    /* Add more space below */
+    line-height: 1.6;
+    /* Increase line height for better readability */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Cool font family */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* Text shadow effect */
+}
+
+.large-button {
+    background-color: #8f0808;
+    /* Red background color */
+    color: white;
+    /* White text color */
+    padding: 50px 100px;
+    /* Larger padding for more space around the text */
+    font-size: 40px;
+    /* Larger font size */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    transition: background-color 0.3s ease;
+    /* Smooth transition for background color change */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Cool font family */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* Text shadow effect */
+}
+
+.large-button:hover {
+    background-color: #686868;
+    /* Darker red color on hover */
+}
+
+.moving-gifs {
+    max-width: 50%;
+    /* Limit GIFs width to half of the viewport */
+    text-align: right;
+    /* Right align GIFs */
+}
+
+.moving-gif {
+    width: 250px;
+    /* Set a fixed width */
+    height: 150px;
+    /* Set a fixed height */
+    margin-bottom: 40px;
+    /* Add space below GIFs */
+}
+
+.button-container {
+    margin-top: 40px;
+    /* Add space above the button */
+    text-align: center;
+    /* Center align the button */
+}

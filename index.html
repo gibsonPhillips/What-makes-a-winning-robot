@@ -1,40 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Robot Efficacy</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/gifstyles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="stylefrontpage.css" />
   </head>
   <body>
-    <h1></h1>
-    <li><a href="Battle-bots-bananas.html">View Visualization</a></li>
+    <div class="container">
+      <div class="background-text">ROBOT WEAPON COMPARISION</div>
 
-    <!-- Container for the GIFs -->
-    <div class="gif-container">
-      <!-- Placeholders for GIFs -->
-      <img
-        class="car1"
-        id="car1"
-        src="gif container\animation\final Drum Spinner.gif"
-        alt="First GIF"
-      />
-      <img
-        class="car2"
-        id="car2"
-        src="gif container\animation\final Drum.gif"
-        alt="Second GIF"
-      />
-      <img
-        class="effect"
-        src="gif container\animation\final effect collision.gif"
-        alt="Third GIF"
-      />
-      <div id="winBox"></div>
-      <button id="startButton">Start Animation</button>
+      <hr />
+
+      <div class="content">
+        Our visualization compares different weapon types of BattleBots across
+        various filters, including drive system and weight class. Additionally,
+        there is a dynamic game that shows the win-loss chance of the chosen
+        type and filter of the BattleBot. The visualization includes:
+        <br /><br />
+        <b>Bar Graph:</b> Shows the win and loss records of each weapon type
+        across all criteria and in general. <br /><br />
+        <b>Pie Chart:</b> Quickly visualizes the chosen weapon for the game and
+        helps determine which one has a higher chance of winning. <br /><br />
+        Explore the data and enjoy playing the game to strategize and learn more
+        about BattleBots!
+      </div>
     </div>
 
-    <script src="scripts/gif_container.js" type="module"></script>
+    <div class="moving-gifs">
+      <img
+        class="moving-gif"
+        src="C:\Users\Marlin\Desktop\data viz\final\animation\final Drum.gif"
+        alt="Moving GIF"
+      />
+      <img
+        class="moving-gif"
+        src="C:\Users\Marlin\Desktop\data viz\final\animation\final Drum.gif"
+        alt="Moving GIF"
+      />
+      <img
+        class="moving-gif"
+        src="C:\Users\Marlin\Desktop\data viz\final\animation\final Drum.gif"
+        alt="Moving GIF"
+      />
+      <div class="button-container">
+        <button class="large-button">START</button>
+      </div>
+    </div>
   </body>
 </html>
