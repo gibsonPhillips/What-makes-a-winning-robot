@@ -1,51 +1,68 @@
+import { sortData } from "./csvReader.js";
+
 // Sample data for the pie chart
-const data2 = [
-    { label: 'Wins', value: 20 },
-    { label: 'Losses', value: 30 },
-];
+// const data = [
+//     { label: 'Wins', value: 30 },
+//     { label: 'Losses', value: 20 },
+// ];
 
 // Set up dimensions for the pie chart
-const width2 = document.getElementById('pie-2').offsetWidth;
-const height2 = document.getElementById('pie-2').offsetHeight;
-const radius2 = Math.min(width2, height2) / 2;
+var width = document.getElementById('pie-2').offsetWidth;
+var height = document.getElementById('pie-2').offsetHeight;
+var radius = Math.min(width, height) / 2;
 
-// Create SVG element
-var pieGraph2 = d3.select('#pie-2')
-    .append('svg')
-    .attr('width', width2)
-    .attr('height', height2)
-    .append('g')
-    .attr('transform', `translate(${width2 / 2}, ${height2 / 2})`);
+var pieGraph1 = d3.select('#pie-2')
+.append('svg')
+.attr('width', width)
+.attr('height', height)
+.append('g')
+.attr('transform', `translate(${width / 2}, ${height / 2})`);
 
-// Create a pie generator
-var pie2 = d3.pie()
-    .value(d => d.value);
+export async function updatePie(weapon, drive, category) {
 
-// Generate pie chart data
-const pieData2 = pie2(data2);
+    pieGraph1.selectAll("arc").remove();
 
-// Set up arc generator
-const arc2 = d3.arc()
-    .innerRadius(0)
-    .outerRadius(radius2);
 
-// Create arcs for each pie slice
-const arcs2 = pieGraph2.selectAll('arc')
-    .data(pieData2)
-    .enter()
-    .append('g')
-    .attr('class', 'arc');
+    var rawData = await sortData([weapon], drive, category);
+    var data = [
+        { label: 'Wins', value: rawData[weapon]["Summary"].W},
+        { label: 'Losses', value: rawData[weapon]["Summary"].L},
+    ];
 
-const colours = ["green", "red"]
+    // Create a pie generator
+    const pie = d3.pie()
+        .value(d => d.value);
 
-// Add paths for each arc
-arcs2.append('path')
-    .attr('d', arc2)
-    .attr('fill', (d, i) => colours[i]);
+    // Generate pie chart data
+    const pieData = pie(data);
 
-// Add text labels for each slice
-arcs2.append('text')
-    .attr('transform', d => `translate(${arc2.centroid(d)})`)
-    .attr('text-anchor', 'middle')
-    .attr('fill', 'white')
-    .text(d => d.data.label);
+    console.log(pieData);
+
+    // Set up arc generator
+    const arc = d3.arc()
+        .innerRadius(0)
+        .outerRadius(radius);
+
+    // Create arcs for each pie slice
+    const arcs = pieGraph1.selectAll('arc')
+        .data(pieData)
+        .enter()
+        .append('g')
+        .attr('class', 'arc');
+
+
+    const colours = ["green", "red"];
+    // Add paths for each arc
+    arcs.append('path')
+        .attr('d', arc)
+        .attr('fill', (d, i) => colours[i]);
+
+    // Add text labels for each slice
+    arcs.append('text')
+        .attr('transform', d => `translate(${arc.centroid(d)})`)
+        .attr('text-anchor', 'middle')
+        .attr('fill', 'white')
+        .text(d => d.data.label);
+}
+window.updatePie2 = updatePie;
+updatePie("Hammersaw", ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"])

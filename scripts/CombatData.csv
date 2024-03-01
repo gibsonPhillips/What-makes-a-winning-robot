@@ -10,7 +10,7 @@ Vorion,3,11,8,3,0.727,6.15,4,3,127.4,11/11/2023,30lb,Vertical Spinner,2WD
 Huge,2,8,6,2,0.75,4.98,6,0,85.3,12/17/2022,30lb,Vertical Spinner,2WD
 Squire,3,13,8,5,0.615,4.67,6,3,87.6,11/11/2023,30lb,Vertical Spinner,2WD
 Dragon Princess,4,18,11,7,0.611,4.66,3,4,150.6,12/17/2022,30lb,Flamethrower,4WD
-Marathon,5,17,9,8,0.529,4.58,8,4,126,12/17/2022,30lb,Drum Spinner,2WD
+Marathon,5,17,9,8,0.529,4.58,8,4,126,12/17/2022,30lb,Drum,2WD
 Tryhard,4,14,9,5,0.643,4.56,8,4,86.8,12/17/2022,30lb,Undercutter,2WD
 Sombra (30lb),2,9,6,3,0.667,4.2,5,1,116.9,9/30/2023,30lb,Beater,2WD
 STF,5,16,9,7,0.563,4.14,6,1,136.4,11/11/2023,30lb,Midcutter,Shuffler
@@ -23,7 +23,7 @@ Chibata,3,9,5,4,0.556,2.12,4,0,137.1,11/11/2023,30lb,Midcutter,2WD
 IRE,1,5,3,2,0.6,1.65,1,1,155.6,12/18/2021,30lb,Flipper,4WD
 Kitchen Grill,2,7,4,3,0.571,1.5,3,3,108.9,11/11/2023,30lb,Vertical Spinner,4WD
 Other Disko,4,12,6,6,0.5,1.21,3,6,101.8,12/17/2022,30lb,Vertical Spinner,2WD
-Touro Feather,4,15,7,8,0.467,1.15,7,2,136,11/11/2023,30lb,Drum Spinner,2WD
+Touro Feather,4,15,7,8,0.467,1.15,7,2,136,11/11/2023,30lb,Drum,2WD
 Chonkiii,3,9,5,4,0.556,0.87,5,2,94.6,9/30/2023,30lb,Shell Spinner,Shuffler
 SMEH,2,6,3,3,0.5,0.8,3,3,79,12/18/2021,30lb,Vertical Spinner,4WD
 Anxieti,2,6,3,3,0.5,0.43,2,2,131,11/11/2023,30lb,Undercutter,2WD
@@ -58,7 +58,7 @@ Big Ripto,1,3,1,2,0.333,-3.21,0,2,155.3,02/06/2021,30lb,Vertical Spinner,2WD
 DeathPact,2,6,1,5,0.167,-3.39,1,3,131.8,11/11/2023,30lb,Vertical Spinner,4WD
 Jade,1,3,1,2,0.333,-3.41,1,2,35,3/26/2022,30lb,Undercutter,2WD
 Lil RIP,5,16,6,10,0.375,-3.64,6,8,95.3,11/11/2023,30lb,Vertical Spinner,2WD
-Depth Charge,4,11,3,8,0.273,-3.75,0,6,122.2,8/12/2023,30lb,Horizontal Spinmer,Bristle Drive
+Depth Charge,4,11,3,8,0.273,-3.75,0,6,122.2,8/12/2023,30lb,Horizontal Spinner,Bristle Drive
 Synthesis 30,5,11,3,8,0.273,-4.05,3,7,77.4,11/11/2023,30lb,Vertical Spinner,2WD
 Knockout,1,1,0,1,0,-4.25,0,1,131,12/18/2021,30lb,Beater,4WD
 VacaTank,5,9,2,7,0.222,-4.32,1,7,88.3,9/30/2023,30lb,Beater,2WD
@@ -73,7 +73,7 @@ Dark Horse,1,2,0,2,0,-5,0,1,153.5,4/23/2022,30lb,Vertical Spinner,2WD
 Butter,1,1,0,1,0,-5,0,1,63,4/23/2022,30lb,Vertical Spinner,2WD
 Sunflower of Peace,2,4,0,4,0,-5,0,3,110.8,12/17/2022,30lb,Full Body Spinner,2WD
 Sassy Kitty,1,2,0,2,0,-5,0,2,55.5,1/28/2023,30lb,Midcutter,2WD
-Spare Parts,3,5,0,5,0,-5,0,5,81.2,9/30/2023,30lb,Horizontal Spinmer,4WD
+Spare Parts,3,5,0,5,0,-5,0,5,81.2,9/30/2023,30lb,Horizontal Spinner,4WD
 kraTer,1,2,0,2,0,-5,0,1,53,6/24/2023,30lb,Undercutter,2WD
 Wicked Wedge XL,1,1,0,1,0,-5,0,1,68,6/24/2023,30lb,Lifter,4WD
 30 Below,1,2,0,2,0,-5,0,1,148.5,6/24/2023,30lb,Flipper,4WD
@@ -260,7 +260,7 @@ DeeVee,1,3,1,2,0.333,-2.91,1,0,126,3/18/2023,12lb,Vertical Spinner,2WD
 YeeHaw,1,2,1,1,0.5,-2.92,0,0,180,11/12/2022,12lb,Drum,4WD
 Widdly Wah,1,3,1,2,0.333,-2.93,0,2,73.8,6/24/2023,12lb,Vertical Spinner,4WD
 Ankle Grinder,1,3,1,2,0.333,-3,1,1,118.3,12/18/2021,12lb,Vertical Spinner,2WD
-Honker,1,3,1,2,0.333,-3,1,2,102,5/15/2021,12lb,Hammer Saw,4WD
+Honker,1,3,1,2,0.333,-3,1,2,102,5/15/2021,12lb,Hammersaw,4WD
 Warmachine,1,3,1,2,0.333,-3,1,2,89.7,7/24/2021,12lb,Flamethrower,2WD
 The Necromancer,2,5,1,4,0.2,-3,1,2,118.6,12/18/2021,12lb,Drum,2WD
 Insubordination,1,3,1,2,0.333,-3,1,2,36.3,3/26/2022,12lb,Vertical Spinner,2WD
