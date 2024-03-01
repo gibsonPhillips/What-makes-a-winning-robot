@@ -1,5 +1,5 @@
 // Sample data for the pie chart
-const data1 = [
+const data = [
     { label: 'Wins', value: 30 },
     { label: 'Losses', value: 20 },
 ];
@@ -22,7 +22,7 @@ const pie = d3.pie()
     .value(d => d.value);
 
 // Generate pie chart data
-const pieData = pie(data1);
+const pieData = pie(data);
 
 // Set up arc generator
 const arc = d3.arc()
@@ -37,7 +37,7 @@ const arcs = pieGraph1.selectAll('arc')
     .attr('class', 'arc');
 
 
-const colours = ["green", "red"]
+const colours = ["green", "red"];
 // Add paths for each arc
 arcs.append('path')
     .attr('d', arc)

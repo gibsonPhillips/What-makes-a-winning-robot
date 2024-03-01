@@ -36,6 +36,8 @@ const arcs2 = pieGraph2.selectAll('arc')
     .append('g')
     .attr('class', 'arc');
 
+const colours = ["green", "red"]
+
 // Add paths for each arc
 arcs2.append('path')
     .attr('d', arc2)

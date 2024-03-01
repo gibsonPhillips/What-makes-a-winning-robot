@@ -242,7 +242,7 @@ export async function updateBarGraphs(weapon1, weapon2, drive, category) {
 
   xAxis2.select("path").remove();
 }
-window.update = update;
+//window.update = update;
 
 function findMax(weapon1, weapon2) {
   console.log(data[weapon1]);
@@ -269,4 +269,4 @@ function findMax(weapon1, weapon2) {
 }
 
 // Initialize the plot with the first dataset
-update("Hammersaw", "Hammersaw", ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
+updateBarGraphs("Hammersaw", "Hammersaw", ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);

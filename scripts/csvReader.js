@@ -9,7 +9,7 @@ function readData() {
 }
 
 // Turns the data into an array
-export async function processData(){
+export async function processData() {
     try {
         const csvData = await readData(); // Wait for the promise to resolve
         return parseCSV(csvData); // Parse the CSV data
@@ -44,34 +44,34 @@ function parseCSV(csv) {
 export async function sortData(weapon, drive, category) {
     try {
         const data = await processData();
-        const weaponData = data.filter(obj=> weapon.includes(obj.Weapon));
-        const categoryData = weaponData.filter(obj=> category.includes(obj.Category));
-        const driveData = categoryData.filter(obj=> drive.includes(obj.Drive));
+        const weaponData = data.filter(obj => weapon.includes(obj.Weapon));
+        const categoryData = weaponData.filter(obj => category.includes(obj.Category));
+        const driveData = categoryData.filter(obj => drive.includes(obj.Drive));
 
-        const processedData = splitData(driveData,"Weapon");
+        const processedData = splitData(driveData, "Weapon");
         var tempData;
         var finalData = {}
         // Gets the information needed for the drive
         for (const key in processedData) {
             if (processedData.hasOwnProperty(key)) {
-              tempData = splitData(processedData[key],"Drive");
-              finalData[key] = getDriveInfo(tempData);
-              
+                tempData = splitData(processedData[key], "Drive");
+                finalData[key] = getDriveInfo(tempData);
+
             }
         }
         // Gets the information for each individual weapon
-        for (const key in finalData){
+        for (const key in finalData) {
             finalData[key] = getWeaponInfo(finalData[key]);
         }
         return finalData;
-          
+
     } catch (error) {
         console.error('Error sorting data:', error);
         throw error; // Re-throw the error to be caught later
     }
 }
 
-function splitData(data,cat){
+function splitData(data, cat) {
     return data.reduce((categories, item) => {
         const category = item[cat];
         if (!categories[category]) {
@@ -83,29 +83,29 @@ function splitData(data,cat){
 }
 
 // Gets Drive Information
-function getDriveInfo(data){
+function getDriveInfo(data) {
     var info = {};
     var tempData;
-    for (const key in data){
+    for (const key in data) {
         var KOs = 0;
         var KOd = 0;
         var W = 0;
         var L = 0;
         var perc = 0;
-        for (const dp of data[key] ){
-            KOs = KOs +  parseInt(dp["KOs"]);
+        for (const dp of data[key]) {
+            KOs = KOs + parseInt(dp["KOs"]);
             KOd = KOd + parseInt(dp['KOd']);
             W = W + parseInt(dp['W']);
             L = L + parseInt(dp['L']);
         }
-        perc = W/(W+L);
-        tempData = {"KOs":KOs,"KOd":KOd,"W":W,"L":L,"perc":perc};
-        info[key]=tempData;
+        perc = W / (W + L);
+        tempData = { "KOs": KOs, "KOd": KOd, "W": W, "L": L, "perc": perc };
+        info[key] = tempData;
     }
     return info;
 }
 
-function getWeaponInfo(data){
+function getWeaponInfo(data) {
     var info = {}
     var tempData;
     var KOs = 0;
@@ -113,14 +113,14 @@ function getWeaponInfo(data){
     var W = 0;
     var L = 0;
     var perc = 0;
-    for (const key in data){
+    for (const key in data) {
         W = W + parseInt(data[key]["W"]);
-        L= L + parseInt(data[key]["L"]);
+        L = L + parseInt(data[key]["L"]);
         KOs = KOs + parseInt(data[key]["KOs"]);
         KOd = KOd + parseInt(data[key]["KOd"]);
     }
-    perc = W/(W+L);
-    data['Summary'] = {"KOs":KOs,"KOd":KOd,"W":W,"L":L,"perc":perc};
+    perc = W / (W + L);
+    data['Summary'] = { "KOs": KOs, "KOd": KOd, "W": W, "L": L, "perc": perc };
     return data;
 }
 
