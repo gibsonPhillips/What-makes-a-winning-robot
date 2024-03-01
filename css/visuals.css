@@ -13,6 +13,7 @@
 #graph-gifs-and-pi-charts {
     background-color: rgb(112, 112, 112);
 
+
     /* inner-flex */
     align-items: center;
     justify-content: center;
@@ -32,7 +33,7 @@
     /* inner-flex */
     justify-content: space-around;
     /* align-content: center; */
-    width:100%;
+    width: 100%;
 
     /* flex */
     flex-grow: 5
@@ -55,13 +56,25 @@
     justify-content: space-around;
 
     /* mbpo */
+    padding: 2em;
     padding-left: 10em;
     padding-right: 10em;
+
 
     /* flex */
     flex-grow: 1;
 }
 
-#label-1, #label-2 {
+#label-1,
+#label-2 {
     text-align: center;
+}
+
+#gradient {
+    background-image: linear-gradient(to top, rgb(112, 112, 112), rgb(89, 129, 129));
+    width: 100%;
+
+    /* inner-flex */
+    align-items: center;
+    justify-content: center;
 }
