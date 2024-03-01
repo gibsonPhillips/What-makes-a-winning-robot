@@ -14,7 +14,8 @@
     background-color: darkgreen;
 
     /* inner-flex */
-    /* align-items: center; */
+    align-items: center;
+    justify-content: center;
 
     /* flex */
     flex-grow: 5;
@@ -31,6 +32,7 @@
     /* inner-flex */
     justify-content: space-around;
     /* align-content: center; */
+    width:100%;
 
     /* flex */
     flex-grow: 2
@@ -45,6 +47,8 @@
 }
 
 #pi-charts {
+
+    width: 100%;
 
     /* inner-flex */
     align-items: center;
