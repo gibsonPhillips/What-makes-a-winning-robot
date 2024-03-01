@@ -242,7 +242,7 @@ export async function updateBarGraphs(weapon1, weapon2, drive, category) {
 
   xAxis2.select("path").remove();
 }
-//window.update = update;
+window.update = updateBarGraphs;
 
 function findMax(weapon1, weapon2) {
   console.log(data[weapon1]);
