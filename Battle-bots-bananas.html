@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <div id="container">
+
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <meta charset="UTF-8" />
@@ -19,7 +20,7 @@
         var weaponType2Select = document.getElementById("WeaponType2");
 
         weaponType1Select.addEventListener("change", function () {
-          update(
+          updateBarGraphs(
             getWeaponName(weaponType1Select.value),
             getWeaponName(weaponType2Select.value),
             [
@@ -37,7 +38,7 @@
         });
 
         weaponType2Select.addEventListener("change", function () {
-          update(
+          updateBarGraphs(
             getWeaponName(weaponType1Select.value),
             getWeaponName(weaponType2Select.value),
             [
@@ -143,4 +144,3 @@
   <button type="button" onclick="update()">button</button>
 </body>
 <script type="module" src="scripts\csvReader.js"></script>
-<script type="module" src="scripts\pieGraph.js"></script>

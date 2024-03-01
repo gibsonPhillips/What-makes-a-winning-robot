@@ -22,7 +22,8 @@
         <div id="main">
             <div class="vbox" id="graph-gifs-and-pi-charts">
                 <div class="hbox" id="graphs">
-                    <script>
+                    <script type="module">
+                        import { updateBarGraphs } from "./scripts/barGraph.js";
                         function c(filePath) {
                             // Split the file path by backslash ("\") and get the last part
                             var parts = filePath.split("\\");
@@ -224,12 +225,11 @@
                     <p>All</p>
                 </div>
             </div>
+            <script type="module" src="scripts/csvReader.js"></script>
+            <script type="module" src="scripts/barGraph.js"></script>
+            <script type="module" src="scripts/pieGraph1.js"></script>
+            <script type="module" src="scripts/pieGraph2.js"></script>
         </div>
-
-        <script type="module" src="scripts/csvReader.js"></script>
-        <script type="module" src="scripts/barGraph.js"></script>
-        <script type="module" src="scripts/pieGraph1.js"></script>
-        <script type="module" src="scripts/pieGraph2.js"></script>
     </body>
 
 
