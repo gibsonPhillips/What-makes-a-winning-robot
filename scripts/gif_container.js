@@ -20,20 +20,20 @@ console.log(
 function generateRandomNumber() {
   return (Math.random() * 10).toFixed(4) / 10;
 }
-// JavaScript to handle dropdown change events
-document
-  .getElementById("car1Dropdown")
-  .addEventListener("change", function () {
-    var selectedGif = this.value;
-    document.getElementById("car1").src = selectedGif;
-  });
+// // JavaScript to handle dropdown change events
+// document
+//   .getElementById("car1Dropdown")
+//   .addEventListener("change", function () {
+//     var selectedGif = this.value;
+//     document.getElementById("car1").src = selectedGif;
+//   });
 
-document
-  .getElementById("car2Dropdown")
-  .addEventListener("change", function () {
-    var selectedGif = this.value;
-    document.getElementById("car2").src = selectedGif;
-  });
+// document
+//   .getElementById("car2Dropdown")
+//   .addEventListener("change", function () {
+//     var selectedGif = this.value;
+//     document.getElementById("car2").src = selectedGif;
+//   });
 
 // // JavaScript to handle start button click event
 // document
@@ -244,6 +244,11 @@ export async function gifSync(weapon1, weapon2, drive, category) {
     console.log("Win status for Bot 2:", win2);
   } while ((win1 === 1 && win2 === 1) || (win1 === 0 && win2 === 0));
 
+  // !!! testing assiging sprite
+  document.getElementById("car1").src = weapon1;
+  document.getElementById("car2").src = weapon2;
+
+
   // Reset animation by resetting the image positions and removing existing animations
   document.querySelector(".car1").style.left = "-200px";
   document.querySelector(".car2").style.right = "-200px";
@@ -272,11 +277,6 @@ export async function gifSync(weapon1, weapon2, drive, category) {
       "Winning Weapon: " + getWeaponName(weapon2);
   }
 
-  // Hide the Start Animation button and dropdown menus
-  document.getElementById("startButton").style.display = "none";
-  document.getElementById("car1Dropdown").style.display = "none";
-  document.getElementById("car2Dropdown").style.display = "none";
-
   //Weapon name
   function getWeaponName(filePath) {
     // Split the file path by backslash ("\") and get the last part
@@ -288,13 +288,7 @@ export async function gifSync(weapon1, weapon2, drive, category) {
   document
     .querySelector(".car1")
     .addEventListener("animationend", function () {
-      // Show the Start Animation button and dropdown menus
-      document.getElementById("startButton").style.display =
-        "inline-block";
-      document.getElementById("car1Dropdown").style.display =
-        "inline-block";
-      document.getElementById("car2Dropdown").style.display =
-        "inline-block";
+
       // Reset animation properties
       document.querySelector(".car1").style.animation = "";
       document.querySelector(".car2").style.animation = "";
