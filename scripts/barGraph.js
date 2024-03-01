@@ -1,4 +1,3 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 import { processData, sortData } from "./csvReader.js";
 console.log(d3);
 var data;
@@ -124,7 +123,7 @@ svg2.append('line')
 var u;
 var v;
 // A function that create / update the plot for a given variable:
-export async function update(weapon1, weapon2, drive, category) {
+export async function updateBarGraphs(weapon1, weapon2, drive, category) {
   data = await sortData([weapon1, weapon2], drive, category);
   svg1.selectAll("rect").remove();
   svg2.selectAll("rect").remove();
@@ -270,4 +269,4 @@ function findMax(weapon1, weapon2) {
 }
 
 // Initialize the plot with the first dataset
-update("Hammersaw", "Hammersaw", ["2WD","Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);
+update("Hammersaw", "Hammersaw", ["2WD", "Tread", "4WD", "Shuffler", "8WD", "Bristle Drive", "Swerve", "Drive"], ["30lb", "12lb", "3lb"]);

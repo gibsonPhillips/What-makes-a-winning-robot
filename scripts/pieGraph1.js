@@ -1,16 +1,16 @@
 // Sample data for the pie chart
-const data = [
+const data1 = [
     { label: 'Wins', value: 30 },
     { label: 'Losses', value: 20 },
 ];
 
 // Set up dimensions for the pie chart
-const width = document.getElementById('pie-chart-container').offsetWidth;
-const height = document.getElementById('pie-chart-container').offsetHeight;
+const width = document.getElementById('pie-1').offsetWidth;
+const height = document.getElementById('pie-1').offsetHeight;
 const radius = Math.min(width, height) / 2;
 
 // Create SVG element
-const svg = d3.select('#pie-chart-container')
+const pieGraph1 = d3.select('#pie-1')
     .append('svg')
     .attr('width', width)
     .attr('height', height)
@@ -22,7 +22,7 @@ const pie = d3.pie()
     .value(d => d.value);
 
 // Generate pie chart data
-const pieData = pie(data);
+const pieData = pie(data1);
 
 // Set up arc generator
 const arc = d3.arc()
@@ -30,7 +30,7 @@ const arc = d3.arc()
     .outerRadius(radius);
 
 // Create arcs for each pie slice
-const arcs = svg.selectAll('arc')
+const arcs = pieGraph1.selectAll('arc')
     .data(pieData)
     .enter()
     .append('g')
