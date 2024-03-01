@@ -51,7 +51,7 @@ export async function updatePie(weapon, drive, category) {
         .attr('class', 'arc');
 
 
-    const colours = ["green", "red"];
+    const colours = ["rgb(85,164,32)", "rgb(121,6,6)"];
     // Add paths for each arc
     arcs.append('path')
         .attr('d', arc)

@@ -21,6 +21,7 @@
     top: 1px;
     left: 1px;
     transition: all 0.2s;
+    
 }
 
 .checkbox:checked+.switch::after {
@@ -51,6 +52,8 @@
     /* mbpo */
     border-bottom: 2px solid black;
     padding: 0px;
+    font-weight: bold;
+
 
 }
 
@@ -66,10 +69,11 @@
     /* mbpo */
     border-bottom: 2px solid black;
     padding: 0px;
+    font-weight: bold;
 }
 
 #drive-toggles {
-    background-color: blue;
+    background-color: rgb(90 ,39,41);
 
     height: 100vh;
 
@@ -90,10 +94,10 @@
 }
 
 #weight-toggles {
-    background-color: rgb(100, 100, 143);
+    background-color: rgb(66, 28, 29);
 
     height: 100vh;
-
+    
     /* flex */
     justify-content: space-around;
     flex-grow: 2;
@@ -111,4 +115,5 @@
 
 #toggle-labels {
     width: 100%;
+    font-weight: bold;
 }

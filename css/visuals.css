@@ -11,7 +11,7 @@
 }
 
 #graph-gifs-and-pi-charts {
-    background-color: lightgreen;
+    background-color: rgb(112, 112, 112);
 
     /* inner-flex */
     align-items: center;
