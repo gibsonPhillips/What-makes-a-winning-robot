@@ -1,6 +1,6 @@
 # Robot win Data Visualization
 
-Our visualization compares different weapon types of BattleBots across various filters, including drive system and weight class. Additionally, there is a dynamic game that shows the win-loss chance of the chosen type and filter of the BattleBot. The visualization includes:
+Compares different weapon types of BattleBots across many filters, including drive system and weight class. Additionally, there is a dynamic game that shows the win-loss chance of the chosen type and filter of the BattleBot. The visualization includes:
 
 ### Bar Graph: 
 Shows the win and loss records of each weapon type across all criteria and in general.
